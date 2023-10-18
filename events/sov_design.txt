@@ -1,0 +1,14 @@
+add_namespace = sov_design
+
+country_event = {
+    id = sov_design.1
+    title = sov_design.1.t
+    desc = sov_design.1.d
+    picture = GFX_report_event_europe_funeral
+
+    is_triggered_only = yes
+    
+    option = {
+        name = sov_design.1.a
+    }
+}

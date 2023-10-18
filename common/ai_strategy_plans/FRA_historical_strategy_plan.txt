@@ -1,0 +1,61 @@
+FRA_historical_plan = {
+	name = "France historical plan"
+	desc = "Historical behavior for France"
+
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		FRA_revive_the_national_bloc
+		FRA_laissez_faire
+		FRA_protect_the_rights_of_man
+		FRA_review_foreign_policy
+		FRA_buy_time
+		FRA_france_leads
+		FRA_go_with_britain
+		FRA_strengthen_government_support
+		FRA_begin_rearmament
+		FRA_economic_devolution
+		#1937
+		FRA_defensive_focus
+		FRA_firepower_kills
+		FRA_go_with_britain
+		#1938
+		FRA_devalue_the_franc
+		FRA_invest_in_the_metropole
+		FRA_metropolitan_france 
+		FRA_industrial_expansion 
+		FRA_extra_research_slot
+		#1939		
+		FRA_infantry_focus
+		#1940
+		FRA_artillery_focus 
+		FRA_heavy_armor_focus 
+		FRA_division_cuirassee
+		
+		
+	}
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

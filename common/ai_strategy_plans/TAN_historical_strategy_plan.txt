@@ -1,0 +1,63 @@
+TAN_historical = {
+	name = ""
+	desc = ""
+
+	allowed = {
+		original_tag = TAN
+		has_dlc = "Together for Victory"
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		industrial_effort
+		construction_effort
+		construction_effort_2
+		production_effort
+		production_effort_2
+		production_effort_3
+		infrastructure_effort
+		construction_effort_3
+		infrastructure_effort_2
+		naval_effort
+		aviation_effort
+		political_effort
+		army_effort
+		doctrine_effort
+		doctrine_effort_2
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		dd_tech = 5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

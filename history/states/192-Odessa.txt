@@ -1,0 +1,40 @@
+state = {
+	id = 192
+	name = "STATE_192"
+	manpower = 1286238 #1 8th removed due to Balta-Tiraspol
+
+	state_category = city
+
+	history = {
+		owner = SOV
+		victory_points = {
+			11670 10
+		}
+		victory_points = {
+			13264 2
+		}
+		victory_points = {
+			13265 2
+		}
+		victory_points = {
+			13268 1
+		}
+		buildings = {
+			infrastructure = 3 #was: 5
+			industrial_complex = 2
+			air_base = 4
+			11670 ={
+				naval_base = 3
+				coastal_bunker = 1
+				bunker = 2
+			}
+		}
+		add_core_of = SOV
+	}
+
+	provinces = {
+		  13264 13265 13266 13267 13268 3575 3738 9698 9714 11670 11703
+	}
+
+	local_supplies = 6.0
+}

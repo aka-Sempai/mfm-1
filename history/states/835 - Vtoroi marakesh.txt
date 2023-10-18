@@ -1,0 +1,21 @@
+state={
+	id=835
+	name="STATE_835"
+	manpower = 932776
+	
+	state_category = rural
+
+	history={
+		owner = FRA
+		add_core_of = ALG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+
+	provinces={
+		1152 7958 4154 4933 1207 8046 7908
+	}
+
+	local_supplies=0.0 
+}

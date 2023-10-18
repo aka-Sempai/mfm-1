@@ -1,0 +1,275 @@
+
+add_namespace = corps
+
+country_event = {
+	id = corps.100
+	title = corps.100.t
+	desc = corps.100.d
+	picture = GFX_report_event_worker_protests
+	trigger = {
+		date > 1941.05.01
+	}	
+	mean_time_to_happen = {
+	days = 1
+	}
+	fire_only_once = yes
+	hidden = yes
+	immediate = {	
+		hidden_effect = {
+
+			
+					
+			HUN = {
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }					
+				create_corps_commander = {
+					name = "J. Atilla"
+					gfx = "GFX_portrait_SPR_janos_galicz"
+					skill = 5
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 4 
+					traits = {   armor_officer panzer_leader ranger Trickster }				
+					}
+				create_corps_commander = {
+					name = "S. Petofi"
+					gfx = GFX_Portrait_yugoslavia_ivan_gosnjak
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 4
+					traits = {	   armor_officer panzer_leader ranger  Organizer Offensive_Doctrine   Logistics_Wizard}
+						#Trickster
+					}
+					hidden_effect = {
+			country_event = { id = mfm.3 days = 5}
+		}
+		}
+				
+			ROM = {
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }				
+				create_corps_commander = {
+					name = "B. Lăutaru"
+					gfx = "GFX_portrait_SPA_jose_millan_astray"
+					skill = 5
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 4 
+					traits = { Infantry_leader  armor_officer panzer_leader ranger Trickster}
+						
+					}
+				create_corps_commander = {
+					name = "N. Labiş"
+					gfx = GFX_portrait_bul_asen_nikolov
+					skill = 4
+					attack_skill = 4
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 4
+					traits = {	   armor_officer panzer_leader ranger  Organizer Offensive_Doctrine   Logistics_Wizard}
+						#Trickster
+					} 
+					hidden_effect = {
+			country_event = { id = mfm.4 days = 5}
+		}
+		}
+		
+							
+			}
+		}	
+
+}
+
+country_event = {
+	id = corps.1
+	title = corps.1.t
+	desc = corps.1.d
+	picture = GFX_report_event_worker_protests
+	is_triggered_only = yes
+option = {
+		name = corps.1.a
+		}	
+}
+
+country_event = {
+	id = corps.101
+	title = corps.101.t
+	desc = corps.101.d
+	picture = GFX_report_event_worker_protests
+	trigger = {
+		date > 1942.01.01
+	}	
+	mean_time_to_happen = {
+	days = 1
+	}
+	fire_only_once = yes
+	hidden = yes
+	immediate = {	
+		hidden_effect = {
+
+			RAJ = {	
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }			
+				every_army_leader = {
+					limit = {
+					has_trait = Jungle_Rat					   
+					}
+					add_unit_leader_trait = Organizer	
+					add_attack = 2
+					add_max_trait = 1
+				}
+				every_army_leader = {
+					limit = {
+					has_trait = Desert_Fox					   
+					}
+					add_unit_leader_trait = Organizer	
+					add_attack = 4
+					add_max_trait = 1
+				}				
+				create_corps_commander = {
+					name = "A.R. Murugadoss"
+					gfx = GFX_portrait_usa_alexander_vandegrift
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 2
+					traits = { naval_invader infantry_leader armor_officer panzer_leader }
+				}
+				create_corps_commander = {
+					name = "S.P. Isfaahan"
+					gfx = GFX_portrait_gre_markos_drakos
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 2
+					traits = { naval_invader Organizer infantry_leader armor_officer panzer_leader }
+				}		
+		}
+					
+		
+				
+		
+		
+			AST = {
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }	
+				every_army_leader = {
+					limit = {
+					has_trait = Swamp_Fox				   
+					}
+					add_unit_leader_trait = Organizer	
+					add_attack = 2
+					add_max_trait = 1
+					}
+				every_army_leader = {
+					limit = {
+					has_trait = Trickster					   
+					}
+					add_unit_leader_trait = Organizer	
+					add_attack = 2
+					add_max_trait = 1
+					}				
+				create_corps_commander = {
+					name = "Sydney Fairbairn Rowell"
+					gfx = GFX_Portrait_yugoslavia_ivan_gosnjak
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 2
+					traits = { naval_invader  infantry_leader armor_officer panzer_leader }
+					}
+				create_corps_commander = {
+					name = "M. T. Ball"
+					gfx = GFX_portrait_bul_angel_dotsev
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 2
+					traits = { naval_invader Organizer infantry_leader armor_officer panzer_leader }
+					}			
+		}
+		
+			SAF = {
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }	
+				create_corps_commander = {
+					name = "George Brink"
+					portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+					traits={ Hill_Fighter }
+					skill = 4
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 4
+					}
+		}
+			
+			CAN = {
+				country_event = { id = corps.1 }
+				army_experience = 20
+				add_ideas = { empty_spirit }								
+				every_army_leader = {
+					limit = {
+					has_trait = Swamp_Fox					   
+					}
+					add_unit_leader_trait = Organizer	
+					add_attack = 2
+					add_max_trait = 1
+					}
+				every_army_leader = {
+					limit = {
+					has_trait = hill_fighter					   
+					}
+					add_attack = 2
+					add_max_trait = 1
+					}
+				create_corps_commander = {
+					name = "G. K. Henry"
+					gfx = GFX_portrait_POL_jozef_haller
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 4
+					logistics_skill = 1
+					traits = { naval_invader armor_officer panzer_leader infantry_leader Trickster }
+					}
+				create_corps_commander = {
+					name = "S. M. Arthas"
+					gfx = GFX_POL_stanislav_kopanski
+					skill = 4
+					attack_skill = 5
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 3
+					traits = { naval_invader Organizer armor_officer panzer_leader infantry_leader logistics_Wizard }
+					}
+					
+		}
+							
+			}
+		}	
+
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

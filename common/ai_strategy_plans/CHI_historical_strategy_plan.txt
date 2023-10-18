@@ -1,0 +1,52 @@
+CHI_nationalist_historical_plan = {
+	name = "Nationalist China historical plan"
+	desc = "Essentially historical behavior for Nationalist China"
+
+	allowed = {
+		original_tag = CHI
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+		MAN = {
+			is_subject = no
+		}
+	}
+
+	ai_national_focuses = {
+		CHI_invite_foreign_investors
+		CHI_unified_industrial_planning #March 10 1936
+		CHI_mission_to_germany #May 20 1936
+		CHI_rural_reconstruction_movement #July 30 1936
+		CHI_british_cooperation #October 10 1936
+		CHI_mission_to_the_us #February 30 1937
+		CHI_military_affairs_commission #May 10 1937
+		CHI_expand_the_academica_sinica #July 20 1937
+		CHI_mission_to_the_soviet_union #September 30 1937
+		CHI_hire_chennault #December 10 1937
+		CHI_invite_soviet_advisers #April 30 1938
+		CHI_army_reform #July 10 1938
+		CHI_burma_road #September 20 1938
+		CHI_the_soviet_volunteer_group #November 30 1938
+		CHI_fighter_purchases #February 10 1938
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		CHI_soong_mei_ling = 10
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

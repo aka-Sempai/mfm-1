@@ -1,0 +1,5 @@
+
+strategic_region={
+	id=201
+	name="STRATEGICREGION_201"
+}

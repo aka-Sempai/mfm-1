@@ -1,0 +1,405 @@
+political_actions = {
+
+	JAP_resources_relocation = {
+		priority = 10
+
+		icon = steel
+
+		state_target = yes
+
+		#targets = { core_states }
+
+		target_trigger = {
+			FROM = {
+				is_owned_by = JAP
+				OR = {
+					is_core_of = CHI
+					has_state_flag = need_evac_rub
+				}
+				is_fully_controlled_by = JAP
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = JAP
+			JAP = {
+				has_war_with = USA
+			}
+		}
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		available = {
+			FROM = {
+				is_fully_controlled_by = JAP
+				OR = {
+					is_core_of = CHI
+					has_state_flag = need_evac_rub
+				}
+			}
+			has_equipment = { train_equipment > 14 }
+		}
+
+		visible = {
+			FROM = {
+				NOT = {
+					has_state_flag = already_evac
+				}
+				is_fully_controlled_by = JAP
+				OR = {
+					is_core_of = CHI
+					has_state_flag = need_evac_rub
+				}
+				OR = {
+					steel > 3
+					chromium > 3
+					tungsten > 3
+					aluminium > 3
+					rubber > 2
+				}
+			}
+			JAP = {
+				has_war_with = USA
+			}
+		}
+
+		cancel_if_not_visible = no
+
+		cost = 10
+
+		days_remove = 60
+
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = -15
+					producer = JAP
+				}
+			}
+			FROM = {
+				hidden_effect = {
+					
+					#сталь
+					if = {
+						limit = {
+							FROM = {
+								steel > 3
+							}
+						}
+						set_state_flag = steel_evac
+						
+						set_temp_variable = { JAP_steel_vse = 0 }
+						#Считаем сколько ресурса и удаляем полностью
+						while_loop_effect = {
+							limit = {
+								FROM = {
+									steel > 0
+								}
+							}
+							FROM = {
+								add_resource = {
+									type = steel
+									amount = -1
+								}
+							}
+							add_to_temp_variable = { JAP_steel_vse = 1 }
+						}
+						#возвращаем 25% ресурса
+						set_temp_variable = { JAP_steel_itog = JAP_steel_vse }
+						divide_temp_variable = { JAP_steel_itog = 4 }
+						multiply_temp_variable = { JAP_steel_itog = 3 }
+						
+						subtract_from_temp_variable = { JAP_steel_vse = JAP_steel_itog }
+						
+						set_variable = { raz_steel = JAP_steel_vse }
+						
+						FROM = {
+							add_resource = {
+								type = steel
+								amount = raz_steel
+							}
+						}
+					}
+					
+					#хром
+					if = {
+						limit = {
+							FROM = {
+								chromium > 3
+							}
+						}
+						set_state_flag = chromium_evac
+						
+						set_temp_variable = { JAP_chromium_vse = 0 }
+						#Считаем сколько ресурса и удаляем полностью
+						while_loop_effect = {
+							limit = {
+								FROM = {
+									chromium > 0
+								}
+							}
+							FROM = {
+								add_resource = {
+									type = chromium
+									amount = -1
+								}
+							}
+							add_to_temp_variable = { JAP_chromium_vse = 1 }
+						}
+						#возвращаем 25% ресурса
+						set_temp_variable = { JAP_chromium_itog = JAP_chromium_vse }
+						divide_temp_variable = { JAP_chromium_itog = 4 }
+						multiply_temp_variable = { JAP_chromium_itog = 3 }
+						
+						subtract_from_temp_variable = { JAP_chromium_vse = JAP_chromium_itog }
+						
+						set_variable = { raz_chromiuml = JAP_chromium_vse }
+						
+						FROM = {
+							add_resource = {
+								type = chromium
+								amount = raz_chromium
+							}
+						}
+					}
+					
+					#вольфрам
+					if = {
+						limit = {
+							FROM = {
+								tungsten > 3
+							}
+						}
+						set_state_flag = tungsten_evac
+						
+						set_temp_variable = { JAP_tungsten_vse = 0 }
+						#Считаем сколько ресурса и удаляем полностью
+						while_loop_effect = {
+							limit = {
+								FROM = {
+									tungsten > 0
+								}
+							}
+							FROM = {
+								add_resource = {
+									type = tungsten
+									amount = -1
+								}
+							}
+							add_to_temp_variable = { JAP_tungsten_vse = 1 }
+						}
+						#возвращаем 25% ресурса
+						set_temp_variable = { JAP_tungsten_itog = JAP_tungsten_vse }
+						divide_temp_variable = { JAP_tungsten_itog = 4 }
+						multiply_temp_variable = { JAP_tungsten_itog = 3 }
+						
+						subtract_from_temp_variable = { JAP_tungsten_vse = JAP_tungsten_itog }
+						
+						set_variable = { raz_tungsten = JAP_tungsten_vse }
+						
+						FROM = {
+							add_resource = {
+								type = tungsten
+								amount = raz_tungsten
+							}
+						}
+					}
+					
+					#алюминий
+					if = {
+						limit = {
+							FROM = {
+								aluminium > 3
+							}
+						}
+						set_state_flag = aluminium_evac
+						
+						set_temp_variable = { JAP_aluminium_vse = 0 }
+						#Считаем сколько ресурса и удаляем полностью
+						while_loop_effect = {
+							limit = {
+								FROM = {
+									aluminium > 0
+								}
+							}
+							FROM = {
+								add_resource = {
+									type = aluminium
+									amount = -1
+								}
+							}
+							add_to_temp_variable = { JAP_aluminium_vse = 1 }
+						}
+						#возвращаем 25% ресурса
+						set_temp_variable = { JAP_aluminium_itog = JAP_aluminium_vse }
+						divide_temp_variable = { JAP_aluminium_itog = 4 }
+						multiply_temp_variable = { JAP_aluminium_itog = 3 }
+						
+						subtract_from_temp_variable = { JAP_aluminium_vse = JAP_aluminium_itog }
+						
+						set_variable = { raz_aluminium = JAP_aluminium_vse }
+						
+						FROM = {
+							add_resource = {
+								type = aluminium
+								amount = raz_aluminium
+							}
+						}
+					}
+					
+					#резина
+					if = {
+						limit = {
+							FROM = {
+								rubber > 2
+							}
+						}
+						set_state_flag = rubber_evac
+						
+						set_temp_variable = { JAP_rubber_vse = 0 }
+						#Считаем сколько ресурса и удаляем полностью
+						while_loop_effect = {
+							limit = {
+								FROM = {
+									rubber > 0
+								}
+							}
+							FROM = {
+								add_resource = {
+									type = rubber
+									amount = -1
+								}
+							}
+							add_to_temp_variable = { JAP_rubber_vse = 1 }
+						}
+						#возвращаем 90% ресурса
+						set_temp_variable = { JAP_rubber_itog = JAP_rubber_vse }
+						divide_temp_variable = { JAP_rubber_itog = 10 }
+						multiply_temp_variable = { JAP_rubber_itog = 9 }
+						
+						subtract_from_temp_variable = { JAP_rubber_vse = JAP_rubber_itog }
+						
+						set_variable = { raz_rubber = JAP_rubber_vse }
+						
+						FROM = {
+							add_resource = {
+								type = rubber
+								amount = raz_rubber
+							}
+						}
+					}
+					
+					set_state_flag = already_evac
+				}
+			}
+			
+			#награда сталь
+			if = {
+				limit = {
+					FROM = {
+						has_state_flag = steel_evac
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						JAP_is_industrial_relocation_destiny_state = yes
+						is_fully_controlled_by = JAP
+					}
+					add_resource = {
+						type = steel
+						amount = JAP_steel_itog
+					}
+				}
+			}
+			
+			#награда хром
+			if = {
+				limit = {
+					FROM = {
+						has_state_flag = chromium_evac
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						JAP_is_industrial_relocation_destiny_state = yes
+						is_fully_controlled_by = JAP
+					}
+					add_resource = {
+						type = chromium
+						amount = JAP_chromium_itog
+					}
+				}
+			}
+			
+			#награда вольфрам
+			if = {
+				limit = {
+					FROM = {
+						has_state_flag = tungsten_evac
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						JAP_is_industrial_relocation_destiny_state = yes
+						is_fully_controlled_by = JAP
+					}
+					add_resource = {
+						type = tungsten
+						amount = JAP_tungsten_itog
+					}
+				}
+			}
+			
+			#награда алюминий
+			if = {
+				limit = {
+					FROM = {
+						has_state_flag = aluminium_evac
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						JAP_is_industrial_relocation_destiny_state = yes
+						is_fully_controlled_by = JAP
+					}
+					add_resource = {
+						type = aluminium
+						amount = JAP_aluminium_itog
+					}
+				}
+			}
+			
+			#награда резина
+			if = {
+				limit = {
+					FROM = {
+						has_state_flag = rubber_evac
+					}
+				}
+				random_controlled_state = {
+					limit = {
+						JAP_is_industrial_relocation_destiny_state = yes
+						is_fully_controlled_by = JAP
+					}
+					add_resource = {
+						type = rubber
+						amount = JAP_rubber_itog
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 15
+					producer = JAP
+				}
+			}
+		}
+	}
+}

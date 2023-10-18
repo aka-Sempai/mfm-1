@@ -1,0 +1,632 @@
+﻿#	shared_focus = {
+#		id = CHI_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		relative_position_id = 
+#
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+
+shared_focus = {
+	id = CHI_invite_foreign_investors 
+	icon = GFX_focus_generic_concessions
+	x = 40
+	y = 0
+	offset = {
+		x = -6
+		y = 0
+		trigger = {
+			tag = PRC
+		}
+	}
+	offset = {
+		x = -16
+		y = 0
+		trigger = {
+			 tag = MAN 
+		}
+	}
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+
+	}
+
+	bypass = {
+		
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+	}
+}
+shared_focus = {
+	id = CHI_mission_to_germany
+	icon = GFX_focus_chi_mission_to_germany
+	prerequisite = { focus = CHI_invite_foreign_investors }
+	x = -10
+	y = 1
+	relative_position_id = CHI_invite_foreign_investors
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+		modifier = {
+			factor = 10
+			has_country_flag = GER_befriended_by_germany_flag
+		}
+	}
+
+	available = {
+		NOT = {
+			has_war_with = GER
+		}
+		GER = {
+			has_capitulated = no
+		}
+		NOT = { has_global_flag = falkenhausen_recalled }
+	}
+
+	bypass = {
+		is_in_faction_with = GER
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		GER = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_mission_to_germany
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_mission_to_the_soviet_union
+	icon = GFX_focus_chi_mission_to_the_soviet_union
+	prerequisite = { focus = CHI_invite_foreign_investors }
+	x = 4
+	y = 0
+	relative_position_id = CHI_mission_to_germany
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = PRC
+		}
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+		NOT = {
+			has_War_with = SOV
+		}
+		SOV = {
+			has_capitulated = no
+		}
+	}
+
+	bypass = {
+		is_in_faction_with = SOV
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		SOV = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_mission_to_the_soviet_union
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_invite_soviet_advisers
+	icon = GFX_focus_generic_soviet_politics
+	prerequisite = { focus = CHI_mission_to_the_soviet_union }
+	x = 1
+	y = 1
+	relative_position_id = CHI_mission_to_the_soviet_union
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = PRC
+		}
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = soviet_advisers_tt
+			any_other_country = {
+				any_army_leader = {
+					has_id = 600
+				}
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		create_corps_commander = {
+			name = "Aleksandr Cherepanov"
+			gfx = GFX_portrait_sov_aleksandr_cherepanov 
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			id = 600
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_the_soviet_volunteer_group
+	icon = GFX_goal_demand_sudetenland
+	prerequisite = { focus = CHI_invite_soviet_advisers }
+	x = 0
+	y = 1
+	relative_position_id = CHI_invite_soviet_advisers
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = PRC
+		}
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+	}
+
+	bypass = {
+		any_other_country = {
+			has_completed_focus = CHI_the_soviet_volunteer_group
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		SOV = { country_event = wtt_china_shared.11 }
+	}
+}
+
+shared_focus = {
+	id = CHI_british_cooperation
+	icon = GFX_focus_chi_british_cooperation
+	prerequisite = { focus = CHI_invite_foreign_investors }
+	x = 31
+	y = 1
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+		modifier = {
+			factor = 10
+			has_country_flag = ENG_influenced_by_britain_flag
+		}
+	}
+
+	available = {
+		NOT = {
+			has_War_with = ENG
+		}
+		ENG = {
+			has_capitulated = no
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_british_cooperation
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_burma_road
+	icon = GFX_goal_generic_army_motorized
+	prerequisite = { focus = CHI_british_cooperation }
+	x = 0
+	y = 1
+	relative_position_id = CHI_british_cooperation
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1		
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+		modifier = {
+			RAJ = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		OR = {
+			is_subject = no
+			is_subject_of = ENG
+		}
+		all_other_country = { NOT = { has_completed_focus = CHI_burma_road } }
+		325 = { #Yunnan
+			CONTROLLER = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		288 = { #Burma
+			CONTROLLER = {
+				NOT = { has_war_with = ROOT }
+				OR = {
+					original_tag = ENG
+					is_subject_of = ENG
+				}				
+			}
+		}
+		640 = { #Mandalay
+			CONTROLLER = {
+				NOT = { has_war_with = ROOT }
+				OR = {
+					original_tag = ENG
+					is_subject_of = ENG
+				}				
+			}
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		288 = { #Burma
+			set_state_flag = CHI_needed_for_burma_road
+		}
+		325 = { #Yunnan
+			set_state_flag = CHI_needed_for_burma_road
+		}
+		640 = { #Mandalay
+			set_state_flag = CHI_needed_for_burma_road
+		}
+		set_variable = { CHI_burma_road_current_level = 2 }
+		add_offsite_building = { type = arms_factory level = 2 }
+	}
+}
+
+shared_focus = {
+	id = CHI_fighter_purchases
+	icon = GFX_goal_generic_build_airforce
+	prerequisite = { focus = CHI_british_cooperation focus = CHI_mission_to_the_us }
+	x = 3
+	y = 1
+	relative_position_id = CHI_british_cooperation
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+		OR = {
+			has_completed_focus = CHI_british_cooperation
+			has_completed_focus = CHI_mission_to_the_us
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = CHI_purchase_fighters_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = early_fighter
+					}
+				}
+				set_technology = { early_fighter = 1 }
+			}
+			if = {
+				limit = {
+					has_completed_focus = CHI_british_cooperation
+					not = { has_war_with = ENG }
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = CHI_mission_to_the_us
+					not = { has_war_with = USA }
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = CHI_mission_to_the_us
+	icon = GFX_focus_chi_mission_to_the_us
+	prerequisite = { focus = CHI_invite_foreign_investors }
+	x = 8
+	y = 0
+	relative_position_id = CHI_british_cooperation
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+		USA = {
+			has_capitulated = no
+			NOT = {
+				has_War_with = ROOT
+			}
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_mission_to_the_us
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+		USA = { unlock_decision_tooltip = USA_support_the_anti_fascist_war }
+		custom_effect_tooltip = CHI_mission_to_the_us_soong_us_decision
+	}
+}
+
+shared_focus = {
+	id = CHI_hire_chennault
+	icon = GFX_focus_generic_military_mission
+	prerequisite = { focus = CHI_mission_to_the_us }
+	x = -3
+	y = 3
+	relative_position_id = CHI_mission_to_the_us
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = CHI
+		}
+	}
+
+	available = {
+		is_subject = no
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = available_theorist
+		show_ideas_tooltip = CHI_claire_lee_chennault_theorist
+		custom_effect_tooltip = available_chief_of_airforce
+		show_ideas_tooltip = CHI_claire_lee_chennault_air_chief
+	}
+}

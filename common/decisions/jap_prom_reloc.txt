@@ -1,0 +1,200 @@
+political_actions = {
+
+	JAP_generic_industry_relocation = {
+		priority = 10
+
+		icon = generic_construction
+
+		state_target = yes
+
+		#targets = { core_states }
+
+		target_trigger = {
+			FROM = {
+				is_owned_by = JAP
+				is_core_of = CHI
+				is_fully_controlled_by = JAP
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = JAP
+			JAP = {
+				has_war_with = USA
+			}
+		}
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		available = {
+			FROM = {
+				is_fully_controlled_by = JAP
+				is_core_of = CHI
+			}
+			has_equipment = { train_equipment > 14 }
+		}
+
+		visible = {
+			FROM = {
+				is_fully_controlled_by = JAP
+				is_core_of = CHI
+			}
+			JAP = {
+				has_war_with = USA
+			}
+			FROM = {
+				OR = { #Has at least 2 factories
+					arms_factory > 1
+					industrial_complex > 1
+					AND = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+		}
+
+		cancel_if_not_visible = no
+
+		cost = 10
+
+		days_remove = 30
+
+		complete_effect = {  #Attempt to remove 2 CIVS & 2 MILS
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = -15
+					producer = JAP
+				}
+			}
+			custom_effect_tooltip = SOV_industry_relocation_trains_tt
+			custom_effect_tooltip = SOV_industry_relocation_complete_effect_tt
+			#REMOVE factories
+			FROM = {
+				hidden_effect = {
+					set_temp_variable = { SOV_factories_counter = 0 }
+
+					#Attempt to relocate 50%-50% of mils-civs
+					set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+					divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { SOV_factories_counter = SOV.SOV_industrial_relocation_max_factories compare = less_than }
+						}
+						if = { #GO MILS (if possible)
+							limit = {
+								check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+							}
+							if = {
+								limit = {
+									arms_factory > 0
+								}
+								remove_building = {
+									type = arms_factory
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_mils_removed_flag
+									}
+									modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_mils_removed_flag
+								}
+							}
+							else_if = {
+								limit = {
+									industrial_complex > 0
+								}
+								remove_building = {
+									type = industrial_complex
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_civs_removed_flag
+									}
+									modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_civs_removed_flag
+								}
+							}
+						}
+						else = { #GO CIVS (if possible)
+							if = {
+								limit = {
+									industrial_complex > 0
+								}
+								remove_building = {
+									type = industrial_complex
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_civs_removed_flag
+									}
+									modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_civs_removed_flag
+								}
+							}
+							else_if = {
+								limit = {
+									arms_factory > 0
+								}
+								remove_building = {
+									type = arms_factory
+									level = 1
+								}
+								if = {
+									limit = {
+										has_state_flag = SOV_mils_removed_flag
+									}
+									modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+								}
+								else = {
+									set_state_flag = SOV_mils_removed_flag
+								}
+							}
+						}
+						add_to_temp_variable = { SOV_factories_counter = 1 }
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 15
+					producer = JAP
+				}
+			}
+			custom_effect_tooltip = SOV_industry_relocation_remove_effect_tt
+			#RELOCATE FACTORIES
+			FROM = {
+				set_temp_variable = { SOV_factories_counter = 0 }
+				#Factories attempt to get relocated in 2 different states
+				set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+				divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+				while_loop_effect = { #NOTE: Due to the seed not changing during the execution of this effect, the same state will always be chosen, UNLESS it runs out of slots -> That's the reason for this
+					limit = {
+						check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+					}
+					JAP_relocate_industry_in_appropriate_state_effect = yes
+					add_to_temp_variable = { SOV_factories_counter = 1 }
+				}
+			}
+			custom_effect_tooltip = SOV_relocate_industry_repair_tt
+			custom_effect_tooltip = SOV_relocate_industry_lose_control_tt
+		}
+	}
+	
+}

@@ -1,0 +1,99 @@
+operations = {
+
+
+	ITA_carrier_plan = {
+
+		icon = generic_naval
+
+		available = {
+			 
+			 
+			has_navy_size = {
+				unit = carrier
+				size > 2
+			}
+			 
+			 
+			 
+		}
+
+		fire_only_once = yes
+		days_mission_timeout = 730
+		is_good = no
+		activation = {
+			has_completed_focus = ITA_carrier_effort
+		}
+
+		
+		visible = {
+			has_completed_focus = ITA_carrier_effort
+		}
+
+		complete_effect = {
+			 
+			navy_experience = 150
+			air_experience = 150
+		}
+
+		
+	}
+	ITA_battleship_plan = {
+
+		icon = generic_naval
+
+		available = {
+			 
+			 
+		has_navy_size = {
+		
+		
+				unit = battleship
+				size > 6
+				
+				
+			}
+			
+			
+			 
+			 
+			 
+		}
+
+		fire_only_once = yes
+		days_mission_timeout = 730
+		is_good = no
+		activation = {
+			has_completed_focus = ITA_capital_ships
+		}
+
+		
+		visible = {
+			has_completed_focus = ITA_capital_ships
+		}
+
+		complete_effect = {
+			 
+			navy_experience = 150
+			 add_tech_bonus = {
+				name = ITA_marines_and_landing_craft
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+				#technology = marines
+				#technology = marines2
+			}
+			add_tech_bonus = {
+				name = ITA_marines_and_landing_craft
+				bonus = 1.0
+				uses = 1
+				category = tp_tech
+				#technology = transport
+				#technology = landing_craft
+				#technology = tank_landing_craft
+			}
+		}
+
+		
+	}
+	
+	}

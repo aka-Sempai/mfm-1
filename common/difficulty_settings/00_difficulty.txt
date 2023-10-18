@@ -1,0 +1,111 @@
+difficulty_settings = {
+	difficulty_setting = {
+		key = "custom_diff_strong_ger_mod"
+		modifier = diff_strong_ai_generic
+		countries = { GER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_axis_mod"
+		modifier = diff_strong_ai_generic
+		countries = { HUN ROM SLO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_ita"
+		modifier = diff_strong_ai_generic
+		countries = { ITA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_sov"
+		modifier = diff_strong_ai_generic
+		countries = { SOV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_fra"
+		modifier = diff_strong_ai_generic
+		countries = { FRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_eng"
+		modifier = diff_strong_ai_generic
+		countries = { ENG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_usa"
+		modifier = diff_strong_ai_generic
+		countries = { USA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_jap"
+		modifier = diff_strong_ai_generic
+		countries = { JAP MEN MAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_minor_ali"
+		modifier = diff_strong_ai_generic
+		countries = { CAN SAF NZL RAJ AST }
+		multiplier = 2.0
+	}
+	#НЕРФЫ
+	difficulty_setting = {
+		key = "custom_diff_strong_ger_mod_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { GER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_axis_mod_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { HUN ROM SLO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_ita_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { ITA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_sov_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { SOV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_fra_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { FRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_eng_nefr"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { ENG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_usa_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { USA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_jap_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { JAP MEN MAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_strong_minor_ali_nerf"
+		modifier = diff_strong_ai_generic_nerf
+		countries = { CAN SAF NZL RAJ AST }
+		multiplier = 2.0
+	}
+}

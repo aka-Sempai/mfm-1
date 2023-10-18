@@ -1,0 +1,24 @@
+form_commonwealth_category = {
+
+	icon = generic_formable_nations
+
+	picture = GFX_decision_cat_generic_commonwealth
+
+	allowed = {
+		OR = {
+			has_dlc = "Waking the Tiger"
+			has_dlc = "No Step Back"
+		}
+	}
+}
+
+form_greater_german_reich_category = {
+
+	icon = generic_formable_nations
+
+	picture = GFX_decision_cat_generic_hre
+
+	allowed = {
+		has_dlc = "Waking the Tiger"
+	}
+}

@@ -1,0 +1,344 @@
+upstate_category = {
+	
+	urbanize_hide = {
+		icon = infiltrate_state
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		
+		complete_effect = {
+			set_country_flag = urbanize_hidden
+		}
+	}
+	
+	urbanize_show = {
+		icon = infiltrate_state
+		
+		visible = {
+			has_country_flag = urbanize_hidden
+		}
+		
+		complete_effect = {
+			clr_country_flag = urbanize_hidden
+		}
+	}
+
+	
+	urbanize_target5 = {
+		
+		icon = generic_construction
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 30 
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = wasteland
+					has_state_category = tiny_island
+					has_state_category = enclave
+					has_state_category = pastoral
+					has_state_category = rural
+				}
+				impassable = no
+				is_owned_by = ROOT
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+			FROM = { 
+				NOT = {
+					has_state_category = town
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						SOV_siberia_states = yes
+					}
+					NOT = {
+						SOV = {
+							has_war_with = GER
+						}
+					}
+				}
+				always = no
+			}
+		}
+		
+		available = {
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = wasteland
+					}
+					set_temp_variable = { urbanize_ppcost = 5 }
+					set_temp_variable = { urbanize_roadlvl = 0 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = tiny_island
+					}
+					set_temp_variable = { urbanize_ppcost = 5 }
+					set_temp_variable = { urbanize_roadlvl = 0 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = enclave
+					}
+					set_temp_variable = { urbanize_ppcost = 5 }
+					set_temp_variable = { urbanize_roadlvl = 0 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = pastoral
+					}
+					set_temp_variable = { urbanize_ppcost = 10 }
+					set_temp_variable = { urbanize_roadlvl = 0 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = rural
+					}
+					set_temp_variable = { urbanize_ppcost = 10 }
+					set_temp_variable = { urbanize_roadlvl = 0 }
+				}
+				
+				hidden_trigger = {
+					OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						has_state_category = pastoral
+						has_state_category = rural
+					}
+				}
+				
+				infrastructure > urbanize_roadlvl
+			}
+			num_of_civilian_factories_available_for_projects > 1
+		}
+		
+		remove_effect = {
+			FROM = {
+				urbanize_state = yes
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			#modifier = {
+			#	factor = 0
+			#	has_political_power < 50
+			#	FROM = { free_building_slots = { building = industrial_complex size > 1 include_locked = no }}
+			#}
+		}
+	}
+
+
+	urbanize_target10 = {
+		
+		icon = generic_construction
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 40
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = town
+					has_state_category = large_town
+				}
+				is_owned_by = ROOT
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+			FROM = { 
+				NOT = {
+					has_state_category = city
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						SOV_siberia_states = yes
+					}
+					NOT = {
+						SOV = {
+							has_war_with = GER
+						}
+					}
+				}
+				always = no
+			}
+		}
+		
+		available = {
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = town
+						
+					}
+					set_temp_variable = { urbanize_ppcost = 10 }
+					set_temp_variable = { urbanize_roadlvl = 1 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_town
+					}
+					set_temp_variable = { urbanize_ppcost = 10 }
+					set_temp_variable = { urbanize_roadlvl = 1 }
+				}
+				
+				hidden_trigger = {
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+					}
+				}
+				
+				infrastructure > urbanize_roadlvl
+			}
+			num_of_civilian_factories_available_for_projects > 3
+		}
+		
+		remove_effect = {
+			FROM = {
+				urbanize_state = yes
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			#modifier = {
+			#	factor = 0
+			#	has_political_power < 100
+			#	FROM = { free_building_slots = { building = industrial_complex size > 1 include_locked = no }}
+			#}
+		}
+	}
+
+
+	urbanize_target15 = {
+		
+		icon = generic_construction
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 50 
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = metropolis
+					has_state_category = city
+					has_state_category = large_city
+				}
+				is_owned_by = ROOT
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+			if = {
+				limit = {
+					FROM = {
+						SOV_siberia_states = yes
+					}
+					NOT = {
+						SOV = {
+							has_war_with = GER
+						}
+					}
+				}
+				always = no
+			}
+		}
+		
+		available = {
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = city
+					}
+					set_temp_variable = { urbanize_ppcost = 15 }
+					set_temp_variable = { urbanize_roadlvl = 2 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_city
+					}
+					set_temp_variable = { urbanize_ppcost = 15 }
+					set_temp_variable = { urbanize_roadlvl = 3 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = metropolis
+					}
+					set_temp_variable = { urbanize_ppcost = 20 }
+					set_temp_variable = { urbanize_roadlvl = 4 }
+				}
+				hidden_trigger = {
+					OR = {
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = metropolis
+					}
+				}
+				infrastructure > urbanize_roadlvl
+			}
+			num_of_civilian_factories_available_for_projects > 5
+		}
+		
+		remove_effect = {
+			FROM = {
+				urbanize_state = yes
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			#modifier = {
+			#	factor = 0
+			#	has_political_power < 200
+			#	FROM = { free_building_slots = { building = industrial_complex size > 1 include_locked = no }}
+			#}
+		}
+	}
+}

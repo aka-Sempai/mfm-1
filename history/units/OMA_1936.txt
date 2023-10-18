@@ -1,0 +1,11 @@
+﻿instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "OMA"
+		}
+		requested_factories = 1
+		progress = 0.84
+		efficiency = 100
+	}
+}

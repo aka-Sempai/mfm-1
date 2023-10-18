@@ -1,0 +1,78 @@
+technologies = {
+
+barb_on = {
+		research_cost = 999
+		start_year = 1945
+		
+		allow = {
+			always = no
+		}
+		
+		category_light_infantry = {
+		mountain = { 
+			attack = 0.3
+		
+		}
+		hills = { 
+			attack = 0.2
+		
+		}
+		jungle = { 
+			attack = 0.14
+		
+	
+		}
+		
+		}
+		category_special_forces  = {
+		mountain = { 
+			attack = -0.3
+		
+		}
+		hills = { 
+			attack = -0.2
+		
+		}
+		#jungle = { 
+		#	attack = -0.1
+		#
+		#}
+		}
+		
+		
+		
+	}
+	
+	barb_off = {
+		research_cost = 999
+		start_year = 1945
+		
+		
+		
+		allow = {
+			always = no
+		}
+		
+		
+		light_armor = {
+        
+		river = { 
+			attack = -0.45
+		
+		}
+		}
+		medium_armor = {
+		river = { 
+			attack = -0.20
+		
+		}
+		}
+		heavy_armor = {
+		river = { 
+			attack = -0.35
+		
+		}
+		}
+	}
+	
+}

@@ -1,0 +1,30 @@
+
+state={
+	id=138
+	name="STATE_138"
+	manpower = 1
+	
+	state_category = city
+
+	history={
+		owner = SWE
+		buildings = {
+			11215 = {
+				naval_base = 5
+			}
+			9279 = {
+				naval_base = 5
+			}
+			6361 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		3307 6120 6345 6361 6412 9279 9300 9362 11160 11215 11327 11376 
+	}
+
+	local_supplies=0.0 
+}

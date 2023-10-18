@@ -1,0 +1,23 @@
+﻿
+
+
+### Fortele Aeriene Regale ale României (FFAR) ###
+air_wings = {
+	46 = {
+		small_plane_airframe_0 = { owner = "ROM" creator = "POL" version_name = "PZL P.24" amount = 60 }
+		small_plane_airframe_1 = { owner = "ROM" creator = "ENG" version_name = "Hawker Hurricane" amount = 12 }			# Grup 1 Avion de Vanatoare -- PZL P.24, Hurricane I fighters
+		medium_plane_airframe_1 = {	owner = "ROM" creator = "ITA" version_name = "SM.79" amount = 48 }		# Grup 1 Avion de Bombardier -- SM.79, PZL 37 Los bombers
+	}
+	79 = {
+		small_plane_airframe_0 = { 
+			owner = "ROM" creator = "POL" version_name = "PZL P.11" amount = 36
+		}
+		small_plane_airframe_0 = { 
+			owner = "ROM" creator = "ROM" version_name = "IAR 14" amount = 36
+		}			# Grup 2 Avion de Vanatoare -- PZL P.11 fighters
+					# Grup 3 Avion de Vanatoare -- IAR 14, 15 fighters
+		small_plane_airframe_1 = { #grupul 5
+			owner = "ROM" creator = "GER" version_name = "He 112" amount = 30
+		}
+	}
+}

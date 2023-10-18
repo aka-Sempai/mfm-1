@@ -1,0 +1,1085 @@
+add_namespace = mfm
+
+
+country_event = {
+	id = mfm.1
+	title = mfm.1.t
+	desc = mfm.1.d
+	picture = GFX_report_event_japan_europe_pact
+
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = mfm.1.a
+		set_technology = { barb_on = 1 }
+	}
+	
+
+}
+
+country_event = {
+	id = mfm.2
+	title = mfm.2.t
+	desc = mfm.2.d
+	picture = GFX_report_event_japan_europe_pact
+
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = mfm.2.a
+		set_technology = { barb_off = 1 }
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = {
+	id = mfm.3
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					  has_trait = Organizer
+					   
+				}
+				
+					
+			 
+                 add_max_trait = 2
+	}
+			
+			
+		}
+}
+
+
+country_event = {
+	id = mfm.4
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					  has_trait = Organizer
+					   
+				}
+				
+					
+			 
+                 add_max_trait = 2
+	}
+			
+			
+		}	
+
+}
+
+		
+				
+				
+country_event = {
+	id = mfm.5
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+GER = { add_to_faction = ITA }
+				ITA = {
+				add_to_war = {
+				targeted_alliance = GER
+				enemy = ENG
+					}
+				}
+			
+		}	
+
+}
+
+
+
+
+
+
+
+
+#ital baf
+country_event = {
+	id = mfm.6
+	title = mfm.6.t
+	desc = mfm.6.d
+	picture = Portrait_Arti_small
+
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = mfm.6.a
+	}
+
+}
+
+
+country_event = {
+	id = mfm.7
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = { 
+		SOV = {
+			every_army_leader = {
+				limit = {
+					has_trait = ranger		   
+				}		 
+				add_max_trait = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mfm.8
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = { 
+		CAN = {
+			every_army_leader = {
+				limit = {
+					has_trait = Panzer_Leader		   
+				}		 
+				add_max_trait = 2
+				
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mfm.9
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					  has_trait = Panzer_Leader
+					   
+				}
+				
+					
+			 add_attack = 1
+                 add_max_trait = 1
+	}
+			
+		}	
+
+}
+
+country_event = {
+	id = mfm.10
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					  has_trait = Infantry_leader
+					   
+				}
+				
+					
+			 add_attack = 2
+                
+	}
+			
+		}	
+
+}
+#1942 minori GER
+country_event = {
+	id = mfm.11
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					   has_trait = Panzer_Leader
+					   
+				}
+				
+					
+			 add_attack = 2
+                
+	}
+			
+		}	
+
+}
+#1942 minori GB
+country_event = {
+	id = mfm.12
+
+	hidden = yes
+
+		is_triggered_only = yes
+		
+	immediate = { 
+					every_army_leader = {
+	limit = {
+					   has_trait = Panzer_Leader
+					   
+				}
+				
+					
+			 add_attack = 1
+			 add_defense = 1
+			 add_planning = 1
+                
+	}
+			
+		}	
+
+}
+
+country_event = {
+    id = mfm.13
+    #Moscow 
+	hidden = yes
+
+    trigger = {
+	
+	SOV = {NOT = { controls_state = 219 }}
+     
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			if = { limit = {AND = {date > 1941.01.01 date < 1942.01.01}}
+			SOV = { add_timed_idea = { idea = sov_homeland_moscow days = 680 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 25 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			
+
+			army_experience = 100
+
+			}
+			if = {limit = { AND = {date > 1941.01.01 date < 1942.06.01}}
+			SOV = { add_timed_idea = { idea = sov_homeland_moscow days = 120 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 15 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			army_experience = 10
+			}
+			if = { limit = {date > 1942.06.01 }
+			SOV = { add_timed_idea = { idea = sov_homeland_moscow days = 30 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 10 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			
+			}
+			
+    }
+}
+country_event = {
+    id = mfm.14
+    #Stalingrad
+	hidden = yes
+
+    trigger = {
+	
+	SOV = {NOT = { controls_state = 217 }}
+     
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			if = { limit = { AND = {date > 1941.07.01 date < 1942.01.01} }
+			SOV = { add_timed_idea = { idea = sov_homeland_stal days = 680 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 25 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			
+			army_experience = 100
+			
+			
+			}
+			if = { limit = { AND = {date > 1942.01.01 date < 1942.06.01}}
+			SOV = { add_timed_idea = { idea = sov_homeland_stal days = 120 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 15 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			army_experience = 10
+			}
+			if = { limit = {date > 1942.06.01 }
+			SOV = { add_timed_idea = { idea = sov_homeland_stal days = 30 } }
+			SOV = { add_timed_idea = { idea = sov_counter_offensive days = 10 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			}
+			
+    }
+}
+
+
+
+country_event = {
+    id = mfm.15
+    #Winter offensive
+	hidden = yes
+
+    trigger = {
+		AND = {
+			OR = {
+				AND = {
+					date > 1941.12.01
+					date < 1942.2.1
+				}
+				AND = {
+					date > 1942.12.01
+					date < 1943.2.1
+				}
+				AND = {
+					date > 1943.12.01
+					date < 1944.2.1
+				}
+				AND = {
+					date > 1944.12.01
+					date < 1945.2.1
+				}
+			}
+			sov_contr_push_trigger = yes
+		}
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			
+			
+			#proebali sovok
+			#if = { limit = {
+			#AND = {	OR = {SOV = {NOT = { controls_state = 219 }} SOV = {NOT = { controls_state = 195 }} 
+			#			 SOV = {NOT = { controls_state = 217 }}
+			#			 } 
+			#		 AND = {SOV = {NOT = { controls_state = 808 }} SOV = {NOT = { controls_state = 202 }} }
+			#	  } 
+			#				}
+			#	 
+			#	 
+			#SOV = { add_timed_idea = { idea = sov_winter_offensive days = 120 }}
+			#SOV = {load_oob = "SOV_DV1"}
+			#SOV = {load_oob = "SOV_DV1"}
+			#
+			#	}
+			
+			#defoltno otpushili
+			#if = { limit ={ AND = {SOV = {NOT = { controls_state = 808 }} SOV = {NOT = { controls_state = 202 }} 
+			#			AND ={SOV = { controls_state = 219 } SOV = { controls_state = 195 } 
+			#				SOV = { controls_state = 217 } 
+			#				 }
+			#			 }}
+			SOV = { add_timed_idea = { idea = sov_winter_offensive days = 60 } }
+			if = {
+                limit = {
+                    AND = {
+                        date > 1941.12.01
+                        date < 1942.2.1
+                    }
+                }
+                SOV = {load_oob = "SOV_DV1"}
+                SOV = {load_oob = "SOV_DV1"}
+                SOV = {load_oob = "SOV_DV1"}
+				
+            }
+            else_if = {
+                limit = {
+                    AND = {
+                        date > 1942.12.01
+                        date < 1943.2.1
+                    }
+                }
+                SOV = {load_oob = "SOV_DV1"}
+                SOV = {load_oob = "SOV_DV1"}
+				
+            }
+            else_if = {
+                limit = {
+                    AND = {
+                        date > 1943.12.01
+                        date < 1944.2.1
+                    }
+                }
+                SOV = {load_oob = "SOV_DV1"}
+            }
+			#} 
+			#stoim po rechke
+			#if = { limit = { OR = {SOV = { controls_state = 808 } SOV = { controls_state = 202 } } }
+			#SOV = { add_timed_idea = { idea = sov_winter_offensive days = 20 }
+			#}}
+			
+			
+    }
+}
+
+country_event = {
+    id = mfm.16
+    #buff na provki na starte voyni
+	hidden = yes
+	is_triggered_only = yes
+    
+    
+    fire_only_once = yes
+
+    #mean_time_to_happen = { days = 1 }
+    
+    option = {
+			
+			# s stanislova i do severa
+				89 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				} 
+			91 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+				}
+				93 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+			94 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 25 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+				}
+			97 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+			814 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+			198 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 10 scope = SOV }
+				}
+				190 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 8 scope = SOV }
+				}
+				189 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+				}
+				11 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 5 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+				815 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+				808 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 40 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 25 scope = SOV }
+				}
+				12 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 50 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 40 scope = SOV }
+				}
+				809 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+				784 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 25 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 15 scope = SOV }
+				}
+			209 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 100 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 80 scope = SOV }
+				}
+			194 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 50 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 20 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 30 scope = SOV }
+				}
+				95 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 30 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 8 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 20 scope = SOV }
+				}
+				96 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 30 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 12 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 20 scope = SOV }
+				}
+				
+			# misk
+			206 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 50 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 20 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 35 scope = SOV }
+				}
+			# tihvin/yaroslavl'/kazan'/ i do vladivostoka (LOL)
+			253 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+			247 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 350 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 250 scope = SOV }
+				}
+			264 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+				400 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+				351 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+			248 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			251 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			252 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			250 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			255 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+				254 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 460 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 260 scope = SOV }
+				}
+				#voronezh
+				260 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 360 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 300 scope = SOV }
+				}
+			
+			833 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+				256 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+				249 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			257 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 260 scope = SOV }
+				}
+			239 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+				401 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			829 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 460 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 260 scope = SOV }
+				}
+			652 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 460 scope = SOV }
+				}
+			214 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 560 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 360 scope = SOV }
+				}
+			#mid center
+			#220 = { 
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense days = 100 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 80 scope = SOV }
+			#	}
+			#221 = { 
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense days = 90 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 70 scope = SOV }
+			#	}
+			#222 = { 
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense days = 120 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 90 scope = SOV }
+			#	}
+			#223 = { 
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense days = 130 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 100 scope = SOV }
+			#	}
+			#219 = { 
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense days = 140 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 110 scope = SOV }
+			#	}
+			#leningrad
+			195 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 190 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 170 scope = SOV }
+				}
+			#Ukraina
+			80 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			#add_dynamic_modifier = { modifier = SOV_prepared_defense_3 days = 4 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 3 scope = SOV }
+				}
+			78 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+			766 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 10 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 5 scope = SOV }
+				}
+				192 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 10 scope = SOV }
+				}
+				199 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 10 scope = SOV }
+				}
+				201 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 30 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 15 scope = SOV }
+				}
+				203 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 30 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 15 scope = SOV }
+				}
+				197 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 30 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 15 scope = SOV }
+				}
+				834 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 15 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 10 scope = SOV }
+				}
+			202 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 50 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 30 scope = SOV }
+				}
+				226 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 50 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 40 scope = SOV }
+				}
+			221 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 80 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 60 scope = SOV }
+				}
+			137 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 170 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 150 scope = SOV }
+				}
+			254 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 170 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 150 scope = SOV }
+				}
+			217 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 170 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 150 scope = SOV }
+				}
+			236 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 250 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 200 scope = SOV }
+				}
+			216 = { 
+			add_dynamic_modifier = { modifier = SOV_prepared_defense days = 250 scope = SOV }
+			add_dynamic_modifier = { modifier = SOV_prepared_defense_2 days = 200 scope = SOV }
+				}
+				
+			
+			
+    }
+}
+
+
+country_event = {
+    id = mfm.17
+    #Leningrad
+	hidden = yes
+
+    trigger = {
+	
+	SOV = {NOT = { controls_state = 195 }}
+     
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			if = { limit = { AND = {date > 1941.07.01 date < 1942.01.01} }
+			#SOV = { add_timed_idea = { idea = sov_homeland_stal days = 680 } }
+			#SOV = { add_timed_idea = { idea = sov_counter_offensive days = 25 } }
+			SOV = {load_oob = "SOV_DV1"}
+			SOV = {load_oob = "SOV_DV1"}
+			}
+			if = { limit = { AND = {date > 1942.01.01 date < 1942.06.01}}
+			#SOV = { add_timed_idea = { idea = sov_homeland_stal days = 100 } }
+			#SOV = { add_timed_idea = { idea = sov_counter_offensive days = 15 } }
+			SOV = {load_oob = "SOV_DV1"}
+			
+			
+			
+			}
+			if = { 
+				limit = {
+					date > 1942.06.01
+				}
+			#SOV = { add_timed_idea = { idea = sov_homeland_stal days = 30 } }
+			#SOV = { add_timed_idea = { idea = sov_counter_offensive days = 10 } }
+			
+			
+			}
+			
+    }
+}
+
+country_event = {
+	id = mfm.18
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		FRA = {	set_equipment_fraction = 0.0 }
+	}
+}
+
+country_event = {
+    id = mfm.19
+    #Ger tire
+	hidden = yes
+
+    trigger = {
+	
+	date > 1941.11.15
+     
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			
+	
+			GER = { add_timed_idea = { idea = GER_after_Barbarossa days = 50 } }
+			
+
+    }
+}
+
+country_event = {
+    id = mfm.20
+    #	 soset
+	hidden = yes
+
+    trigger = {
+		JAP = { 
+			#surrender_progress > 0.1
+			#has_capitulated = yes
+			country_exists = no
+		}
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+		every_state = {
+			limit = {
+				is_core_of = CHI
+			}
+			add_dynamic_modifier = { modifier = JAP_invaders_must_die days = 900  }
+		}
+    }
+}
+
+#Вписываю совку поезда
+country_event = {
+    id = mfm.21
+	hidden = yes
+	
+	is_triggered_only = yes
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+		SOV = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 80
+				producer = SOV
+			}
+		}
+    }
+}
+
+#Вписываю совку советников
+country_event = {
+    id = mfm.22
+	title = mfm.22.t
+	desc = mfm.22.d
+	picture = GFX_report_event_physics_lab_02
+	
+	trigger = {
+		original_tag = SOV
+		sov_sovetnik_triiger = yes
+	}
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+		name = mfm.22.a
+		hidden_effect = {
+			SOV = {
+				set_country_flag = sov_sovetnik_push
+			}
+		}
+    }
+}
+
+
+
+
+
+
+country_event = {
+    id = mfm.23
+	title = mfm.23.t
+	desc = mfm.23.d
+	picture = GFX_report_event_physics_lab_02
+	hidden = yes
+	trigger = {
+		
+		DEN = { has_capitulated = yes }
+	}
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+		name = mfm.23.a
+		hidden_effect = {
+			ENG = {
+				transfer_state = 100
+			}
+		}
+    }
+}
+
+#Снимается дебаф совку после начала войны зимой
+country_event = {
+    id = mfm.24
+	title = mfm.24.t
+	desc = mfm.24.d
+	picture = GFX_report_event_physics_lab_02
+	
+	trigger = {
+		original_tag = SOV
+		date > 1941.12.1
+	}
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+		name = mfm.24.a
+		SOV = {
+			remove_ideas = SOV_debaf_warstart
+		}
+    }
+}
+
+#Вписываю совку дебаф на ресерчи за советника
+country_event = {
+    id = mfm.25
+	title = mfm.25.t
+	desc = mfm.25.d
+	picture = GFX_report_event_physics_lab_02
+	
+	is_triggered_only = yes
+	
+    option = {
+		name = mfm.25.a
+		FROM = {
+			add_ideas = SOV_stop_modernization
+		}
+    }
+}
+
+#Снимаю дебаф за советника
+country_event = {
+    id = mfm.26
+	title = mfm.26.t
+	desc = mfm.26.d
+	picture = GFX_report_event_physics_lab_02
+	
+	is_triggered_only = yes
+    
+    option = {
+		name = mfm.26.a
+		FROM = {
+			remove_ideas = SOV_stop_modernization
+		}
+    }
+}
+
+country_event = {
+    id = mfm.27
+    #кениг и бессарабия, либо лимит капа
+	hidden = yes
+
+    trigger = {
+	OR = {
+	GER = {surrender_progress > 0.1}
+	AND = {
+		GER = {
+		AND = {
+			NOT = { controls_state = 763 }
+			NOT = { controls_state = 5 }
+			}
+		}
+		ROM = {
+		AND = {
+			NOT = { controls_state = 78 }
+			NOT = { controls_state = 80 }
+			}
+		}
+		
+		}
+		}
+    }
+    
+    fire_only_once = yes
+
+    mean_time_to_happen = { days = 1 }
+    
+    option = {
+			if = { limit = {AND = {date < 1942.01.01}}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+
+			#army_experience = 100
+
+			}
+			if = {limit = { AND = {date > 1942.01.01 date < 1943.01.01}}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+			#army_experience = 10
+			}
+			if = { limit = {date > 1943.01.01 }
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			GER = {load_oob = "GER_mob"}
+			
+			HUN = {load_oob = "HUN_mob"}
+			ROM = {load_oob = "ROM_mob"}
+			
+			}
+			
+			
+			
+    }
+}
+
+

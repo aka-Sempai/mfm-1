@@ -1,0 +1,21 @@
+# Scripted cost modifiers for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+peace_action_modifiers = {
+
+    italy_catholic_dominion = {
+        category = events_or_focuses
+        peace_action_type = { puppet }
+        enable = {
+            ROOT = {
+                original_tag = ITA
+                OR = {
+                    has_idea = ITA_papal_state_catholic_dominion_no_lar
+                    has_idea = ITA_papal_state_catholic_dominion
+                }
+            }
+        }
+        cost_multiplier = 0.75 #25% cost reduction
+    }
+
+}

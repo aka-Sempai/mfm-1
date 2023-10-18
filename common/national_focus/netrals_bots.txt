@@ -1,0 +1,66 @@
+focus_tree = {
+	#id = german_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = IRE
+		}
+		modifier = {
+			add = 10
+			tag = SWE
+		}
+		modifier = {
+			add = 10
+			tag = POR
+		}
+		modifier = {
+			add = 10
+			tag = TUR
+		}
+		modifier = {
+			add = 10
+			tag = PER
+		}
+		modifier = {
+			add = 10
+			tag = SAU
+		}
+		modifier = {
+			add = 10
+			tag = YEM
+		}
+		modifier = {
+			add = 10
+			tag = OMA
+		}
+		modifier = {
+			add = 10
+			tag = AFG
+		}
+		modifier = {
+			add = 10
+			tag = TIB
+		}
+		modifier = {
+			add = 10
+			tag = NEP
+		}
+		modifier = {
+			add = 10
+			tag = BHU
+		}
+		modifier = {
+			add = 10
+			tag = MEX
+		}
+		modifier = {
+			add = 10
+			tag = CUB
+		}
+	}
+
+	default = no
+}

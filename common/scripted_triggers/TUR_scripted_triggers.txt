@@ -1,0 +1,97 @@
+TUR_is_friend_for_bosphorus = { #Scripted Trigger for handling the Bosphorus access before the Montreux Convention and after depending on the results of the event chain. 
+	hidden_trigger = {
+		OR = { 
+			AND = { #Before Montreux Convention, everyone treated as "Friend" as long as Turkey is not at war with them and they control the Bosphorus 
+				TUR = { 
+					date > 1936.3.11
+					controls_state = 797
+					NOT = { has_country_flag = TUR_strait_compromise_set }
+				}
+				OR = {
+					original_tag = SOV
+					original_tag = ROM
+					original_tag = BUL
+				}
+			}
+			AND = { #Bosphorus Compromise. As long as Turkey controls the Bosphorus and they're not at war with them, any country that owns a state bordering the Black Sea is treated as a "Friend"
+				TUR = {
+					controls_state = 797
+					has_country_flag = TUR_strait_compromise_set
+				}
+				OR = {
+					AND = {
+						original_tag = SOV
+						NOT = {
+							has_war_with = GER
+						}
+					}
+					AND = {
+						original_tag = ROM
+						NOT = {
+							has_war_with = ENG
+						}
+					}
+					AND = {
+						original_tag = BUL
+						NOT = {
+							has_war_with = GER
+						}
+					}
+				}
+				
+			}
+			ROOT = { #So the controller can cross their own strait
+				controls_state = 797
+			}
+		}
+	}	
+}
+
+TUR_is_friend_for_dardanelles = { #Scripted Trigger for handling the Dardanelles access before the Montreux Convention and after depending on the results of the event chain. 
+	hidden_trigger = {
+		OR = { 
+			AND = { #Before Montreux Convention, everyone treated as "Friend" as long as Turkey is not at war with them and they control the Bosphorus 
+				TUR = { 
+					date > 1936.3.11
+					controls_state = 797
+					NOT = { has_country_flag = TUR_strait_compromise_set }
+				}
+				OR = {
+					original_tag = SOV
+					original_tag = ROM
+					original_tag = BUL
+				}
+			}
+			AND = { #Bosphorus Compromise. As long as Turkey controls the Bosphorus and they're not at war with them, any country that owns a state bordering the Black Sea is treated as a "Friend"
+				TUR = {
+					controls_state = 797
+					has_country_flag = TUR_strait_compromise_set
+				}
+				OR = {
+					AND = {
+						original_tag = SOV
+						NOT = {
+							has_war_with = GER
+						}
+					}
+					AND = {
+						original_tag = ROM
+						NOT = {
+							has_war_with = ENG
+						}
+					}
+					AND = {
+						original_tag = BUL
+						NOT = {
+							has_war_with = GER
+						}
+					}
+				}
+				
+			}
+			ROOT = { #So the controller can cross their own strait
+				controls_state = 797
+			}
+		}
+	}
+}

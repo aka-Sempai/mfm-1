@@ -1,0 +1,56 @@
+PRC_historical_plan = {
+	name = "Communist China historical plan"
+	desc = "Historical behavior for Communist China"
+
+	allowed = {
+		original_tag = PRC
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		PRC_strengthen_the_central_secretariat #March 10 1936	
+		PRC_land_redistribution #May 20 1936	
+		PRC_enforce_the_three_rules #July 30 1936	
+		PRC_agrarian_socialism #October 10 1936	
+		PRC_the_yanan_base_area #December 20 1936	
+		PRC_focus_on_china #February 30 1937	
+		PRC_infiltration #May 10 1937	
+		PRC_revolutionary_military_commission #July 20 1937	
+		PRC_literacy_programs #September 30 1937	
+		CHI_mission_to_the_soviet_union #December 10 1937	
+		CHI_invite_soviet_advisers #February 20 1938	
+		PRC_ban_the_opium_trade #April 30 1938	
+		PRC_military_intelligence_department #July 10 1938	
+		PRC_prepare_for_war_with_japan #September 20 1938	
+		PRC_anti_japanese_expedition #November 30 1938	
+		PRC_provoke_japan #February 10 1939	
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -500
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

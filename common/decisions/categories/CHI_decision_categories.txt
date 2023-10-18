@@ -1,0 +1,139 @@
+CHI_anti_imperialism = {
+	icon = generic_independence
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}
+	visible = {
+		always = yes
+	}
+}
+
+CHI_army_reform = {
+	icon = army_reform
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}
+
+	visible = {
+	}
+}
+
+CHI_xian_incident = {
+	icon = power_struggle
+	allowed = {
+		OR = {
+			tag = CHI
+			tag = PRC
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+			tag = SIK
+		}
+		NOT = {
+			OR = {
+				tag = CHI
+				tag = PRC
+			}
+		}
+	}
+}
+
+CHI_communist_infiltration = {
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}
+	icon = infiltration
+	visible = {
+		tag = event_target:WTT_current_china_leader
+		NOT = { has_government = communism }
+		any_other_country = {
+			has_completed_focus = PRC_infiltration
+		}
+	}
+}
+
+PRC_provoke_japan = {
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}
+	icon = revolt
+	visible = {
+		has_completed_focus = PRC_provoke_japan
+	}
+}
+
+CHI_seek_japanese_support = {
+	icon = jap_pacific_guardian
+	allowed = {
+		OR = {
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+		}
+	}
+}
+
+CHI_border_clashes = {
+	priority = 90
+	picture = generic_border_conflicts
+	icon = border_conflicts
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}	
+}
+
+CHI_warlord_in_opposition = {
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = PRC
+			original_tag = GXC
+			original_tag = YUN
+			original_tag = SHX
+			original_tag = XSM
+			original_tag = SIK
+		}
+	}	
+}

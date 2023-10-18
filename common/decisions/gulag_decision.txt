@@ -1,0 +1,182 @@
+political_actions = {
+	SOV_the_greatest_airforce = {
+
+		icon = generic_air
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_the_greatest_airforce_tt
+				OR = {
+					has_deployed_air_force_size = {
+						size > 3999
+						type = fighter
+					}
+				}
+			}
+		}
+
+		visible = {
+			tag = SOV
+		}
+
+		days_mission_timeout = 1975
+		is_good = no
+		fire_only_once = yes
+		activation = {
+			tag = SOV
+		}
+
+		complete_effect = {
+			add_ideas = sov_air_reward
+			add_political_power = 50
+			air_experience = 200
+			add_doctrine_cost_reduction = {
+				name = SOV_the_greatest_airforce
+				cost_reduction = 0.99
+				uses = 1
+				category = air_doctrine
+			}
+		}
+
+		timeout_effect = {
+			add_stability = -0.4
+			add_war_support = -0.8
+			air_experience = -400
+			add_political_power = -400
+			SOV = {
+				add_timed_idea = {
+					idea = sov_air_debaf
+					days = 480
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+foreign_politics = {	
+	JAP_grinding_CHI = {
+		icon = generic_scorched_earth
+		days_mission_timeout = 364
+		is_good = no
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		available = {
+			always = no
+		}
+
+		activation = {
+			has_war_with = CHI
+		}
+
+		complete_effect = {			
+		}
+
+		timeout_effect = {
+			CHI = {
+				add_ideas = capitulation_inevitable
+
+				hidden_effect = {
+					nma_disband_army = yes
+					every_controlled_state = {
+						FROM = {
+							set_state_controller = PREV
+						}
+					}
+				}
+			}
+			annex_country = { target = SIA transfer_troops = yes }
+		}
+	}
+}
+
+d_occupation_decisions = {
+	GER_iraq_war = {
+		icon = generic_scorched_earth
+		days_mission_timeout = 3
+		is_good = no
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			ENG = {
+				controls_state = 446
+			}
+		}
+		
+		activation = {
+			NOT = { has_country_flag = ger_iraq_warr}
+			GER = {
+				has_war_with = ENG
+			}
+			OR = {
+				GER = {
+					has_full_control_of_state = 446
+				}
+				ITA = {
+					has_full_control_of_state = 446
+				}
+				ROM = {
+					has_full_control_of_state = 446
+				}
+				HUN = {
+					has_full_control_of_state = 446
+				}
+			
+			}
+		}
+
+		complete_effect = {
+			291 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}
+			676 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}
+			675 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}		
+		}
+		timeout_effect = {
+			GER = {
+				set_country_flag = ger_iraq_warr
+				create_wargoal = {
+					target = "IRQ"
+					type = annex_everything
+					expire = 0
+				}
+			}
+			news_event = { id = arty.6 }
+			IRQ = {
+				give_military_access = ENG
+				give_military_access = CAN
+				give_military_access = RAJ
+				give_military_access = SAF
+				give_military_access = AST
+				give_military_access = NZL
+			}
+			291 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}
+			676 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}
+			675 = {
+				add_dynamic_modifier = { modifier = ger_war_iraq }
+			}
+		}
+	
+	}
+}
+
+	
+	
+	

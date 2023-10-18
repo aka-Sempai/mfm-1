@@ -1,0 +1,2302 @@
+focus_tree = {
+	id = polish_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = POL
+			OR = {
+				has_dlc = "Poland: United and Ready"
+				has_dlc = "No Step Back"
+			}
+		}
+	}
+	default = no
+
+
+	############################
+	#### INDUSTRIAL SECTION ####
+	############################
+
+	focus = {
+		id = POL_the_four_year_plan
+		icon = GFX_focus_POL_the_four_year_plan
+		x = 2
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			#activate_mission = POL_four_year_plan_mission
+			set_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_tech_bonus = {
+				name = POL_the_four_year_plan
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+			add_timed_idea = {
+				idea = POL_four_year_plan_idea
+				days = 1460
+			}
+		}
+	}
+
+	focus = {
+		id = POL_additional_research_slot1
+		icon = GFX_focus_research
+		prerequisite = { focus = POL_the_four_year_plan }
+		x = 2
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			if = {
+				limit = { amount_research_slots > 3 }
+				num_of_owned_factories > 50
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = POL_central_region_strategy
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = POL_the_four_year_plan }
+		x = 4
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+	
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_start_central_industrial_region_1 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_start_central_industrial_region_1 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = POL_central_region_strategy
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 10 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 90 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 92 }
+				add_extra_state_shared_building_slots = 2
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 87 }
+				add_extra_state_shared_building_slots = 2
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+			add_tech_bonus = {
+				name = POL_central_region_strategy
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = POL_expansion_of_new_towns
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = POL_central_region_strategy }
+		x = 2
+		y = 1
+		relative_position_id = POL_central_region_strategy
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_expansion_of_new_towns_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_expansion_of_new_towns_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 86 }
+				limit = {									
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_owned_and_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_expansion_of_new_towns_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 807 }
+				limit = {									
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_owned_and_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_expansion_of_new_towns_1
+			}
+			build_railway = {
+				#level = 1
+				start_province = 9508 
+				target_province = 6558
+			}
+		}
+	}
+
+	focus = {
+		id = POL_start_central_industrial_region
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = POL_expansion_of_new_towns }
+		x = 0
+		y = 1
+		relative_position_id = POL_expansion_of_new_towns
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_start_central_industrial_region_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 88 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+		}
+
+	}
+	
+	focus = {
+		id = POL_expand_central_industrial_region
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = POL_start_central_industrial_region }
+		x = 0
+		y = 1
+		relative_position_id = POL_start_central_industrial_region
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_start_central_industrial_region_1 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_start_central_industrial_region_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 89 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 91 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_start_central_industrial_region_1
+			}
+		}
+	}
+
+	focus = {
+		id = POL_expand_katowice_mines
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = POL_expansion_of_new_towns }
+		x = 2
+		y = 1
+		relative_position_id = POL_expansion_of_new_towns
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+			762 = {
+				owns_or_subject_of = yes
+				controller = {
+					tag = PREV.OWNER
+				}
+			}
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_resource = {
+				type = steel
+				amount = 24
+				state = 762
+			}
+			add_resource = {
+				type = aluminium
+				amount = 12
+				state = 762
+			}
+		}
+	}
+
+	focus = {
+		id = POL_additional_research_slot2
+		icon = GFX_focus_research
+		prerequisite = { focus = POL_expansion_of_new_towns }
+	
+		available = {
+			if = {
+				limit = { amount_research_slots > 3 }
+				num_of_owned_factories > 50
+			}
+		}
+		
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		x = 4
+		y = 1
+		relative_position_id = POL_expansion_of_new_towns
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = POL_ideological_fanaticism
+		icon = GFX_focus_POL_nationalist_education
+		prerequisite = { focus = POL_additional_research_slot2 }
+		mutually_exclusive = { focus = POL_abolish_segregated_seating }
+		available = {
+			NOT = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+		x = -2
+		y = 1
+		relative_position_id = POL_additional_research_slot2
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_ideas = {
+				POL_ideological_fanaticism
+			}
+		}
+	}
+
+	focus = {
+		id = POL_abolish_segregated_seating
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = POL_additional_research_slot2 }
+		mutually_exclusive = { focus = POL_ideological_fanaticism }
+		available = {
+			NOT = {
+				has_government = fascism
+			}
+		}
+		
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER }
+		x = 0
+		y = 1
+		relative_position_id = POL_additional_research_slot2
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_ideas = {
+				POL_segregated_seating_abolished
+			}
+		}
+	}
+
+	focus = {
+		id = POL_fill_the_railways_gaps
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = POL_the_four_year_plan }
+		x = 0
+		y = 1
+		cost = 10 #maybe 20?
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 2
+			}
+			every_owned_state = {
+				limit = { 
+					is_core_of = ROOT 
+					free_building_slots = {
+						building = infrastructure 
+						size > 2
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				#level = 3
+				path = { 438 3483 6557 11543 }
+			}
+			build_railway = {
+				#level = 2
+				path = { 11543 6520 11503 560 6280 11341 9304 }
+			}
+			build_railway = {
+				#level = 2
+				path = { 9236 277 }
+			}
+			build_railway = {
+				#level = 2
+				path = { 277 406 11391 11342 }
+			}
+			build_railway = {
+				#level = 2
+				path = { 11550 3562 438 }
+			}
+			build_railway = {
+				#level = 2
+				path = { 11357 11329 9316 9290 }
+			}
+		}
+	}
+	
+	focus = {
+		id = POL_national_defence_fund
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = POL_fill_the_railways_gaps }
+		x = 0
+		y = 1
+		relative_position_id = POL_fill_the_railways_gaps
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_timed_idea = {
+				idea = POL_national_defence_fund_idea
+				days = 720
+			}
+		}
+	}
+
+	focus = {
+		id = POL_central_defence_of_poland
+		icon = GFX_goal_fortify_the_westwall
+		prerequisite = { focus = POL_fill_the_railways_gaps focus = POL_central_region_strategy }
+		x = 2
+		y = 1
+		relative_position_id = POL_fill_the_railways_gaps
+		cost = 10
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			add_timed_idea = {
+				idea = POL_central_defence_of_poland_idea
+				days = 720
+			}
+		}
+	}
+
+	focus = {
+		id = POL_develop_upper_silesia
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = POL_central_defence_of_poland }
+		x = 0
+		y = 1
+		relative_position_id = POL_central_defence_of_poland
+		cost = 5
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_develop_upper_silesia_1 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 762 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_develop_upper_silesia_1
+			}
+		}
+	}
+
+	focus = {
+		id = POL_agrarian_reform
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = POL_fill_the_railways_gaps }
+		x = -1
+		y = 2
+		relative_position_id = POL_fill_the_railways_gaps
+		cost = 10
+
+		cancelable = no
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		
+		available = {
+		}
+		
+		bypass = {
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = POL_delay_strike_70_days_tt
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			if = {
+				limit = { has_idea = POL_great_peasants_strike }
+				remove_ideas = POL_great_peasants_strike
+			}
+			else = {
+				remove_ideas = POL_looming_peasants_strike
+			}
+		}		
+	}
+	
+	focus = {
+		id = POL_invest_in_eastern_poland
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = POL_agrarian_reform focus = POL_develop_upper_silesia }
+		x = 0
+		y = 2
+		relative_position_id = POL_national_defence_fund
+		cost = 10
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_develop_east_poland_1 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_develop_east_poland_2 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_develop_east_poland_3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_develop_east_poland_4 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 93 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_develop_east_poland_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 94 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_develop_east_poland_2
+			}
+			random_owned_controlled_state = {
+				prioritize = { 95 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_develop_east_poland_3
+			}
+			random_owned_controlled_state = {
+				prioritize = { 96 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_develop_east_poland_4
+			}
+		}
+	}
+
+	focus = {
+		id = POL_invest_in_the_old_polish_region
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = POL_central_region_strategy }
+		x = 0
+		y = 1
+		relative_position_id = POL_central_region_strategy
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_invest_in_the_old_polish_region_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 88 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_invest_in_the_old_polish_region_1
+			}
+		}
+	}
+
+	focus = {
+		id = POL_modernize_congressional_factories
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = POL_invest_in_the_old_polish_region }
+		x = 0
+		y = 1
+		relative_position_id = POL_invest_in_the_old_polish_region
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_modernize_congressional_factories_1 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_modernize_congressional_factories_2 }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { has_state_flag = POL_modernize_congressional_factories_3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 10 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_modernize_congressional_factories_1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 90 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_modernize_congressional_factories_2
+			}
+			random_owned_controlled_state = {
+				prioritize = { 98 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = POL_modernize_congressional_factories_3
+			}
+		}
+	}
+
+	focus = {
+		id = POL_warsaw_main_railway_station
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = POL_modernize_congressional_factories }
+		x = 0
+		y = 1
+		relative_position_id = POL_modernize_congressional_factories
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_state = {
+				limit = { has_state_flag = POL_warsaw_main_railway_station_1 }
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_to_variable = {
+				var = POL_investments_var
+				value = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = { 10 }
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+				}
+				if = {
+					limit = { ROOT = { controls_state = 88 } }
+					
+					build_railway = { #Warsaw to Krakow 
+						level = 2 
+						start_state = THIS
+						target_state = 88
+					}
+				}			
+				if = {
+					limit = { ROOT = { controls_state = 92 } }
+
+					build_railway = { #Warsaw to Lublin
+						level = 2 
+						start_state = THIS
+						target_state = 92
+					}
+				}
+				if = {
+					limit = { ROOT = { controls_state = 85 } }
+			
+					build_railway = { #Warsaw to Danzig 
+						level = 2 
+						start_state = THIS
+						target_state = 85
+					}
+				}	
+				if = {
+					limit = { ROOT = { controls_state = 784 } }
+
+					build_railway = { #Warsaw to Wilno
+						level = 2 
+						start_state = THIS
+						target_state = 784
+					}
+				}
+				set_state_flag = POL_warsaw_main_railway_station_1
+			}
+		}
+			#	Increase Infrastructure in Warsaw
+	}
+
+	############################
+	####### ARMY SECTION #######
+	############################
+
+
+	focus = {
+		id = POL_prepare_for_the_next_war
+		icon = GFX_goal_generic_build_tank
+		
+		x = 23
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = POL_prepare_for_the_next_war
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			#1x 50% cost reduction for one land doctrine research
+		}
+	}
+
+	focus = {
+		id = POL_new_military_academy
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = POL_prepare_for_the_next_war }
+		
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		x = 0
+		y = 1
+		relative_position_id = POL_prepare_for_the_next_war
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = {
+				POL_new_military_academy_idea
+			}
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = POL_standardisation_of_equipment
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = POL_new_military_academy }
+		available = {
+		}
+		
+		x = 0
+		y = 2
+		relative_position_id = POL_new_military_academy
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = POL_standardisation_of_equipment
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+			army_experience = 10
+		}
+	}
+
+	############################
+	##### POLITICS SECTION #####
+	############################
+
+	focus = {
+		id = POL_complete_april_constitution
+		icon = GFX_focus_POL_complete_april_constitution		
+		x = 49
+		y = 0
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = { is_subject = no }
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			hidden_effect = { #collapse focus tree
+				load_focus_tree = {
+					tree = polish_focus
+					keep_completed = yes
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+			swap_ideas = {
+				remove_idea = POL_april_constitution_1
+				add_idea = POL_april_constitution_2
+			}
+			add_political_power = 100
+			swap_ideas = {
+				add_idea = POL_sanation_right_opposition_2
+				remove_idea = POL_sanation_right_opposition_1
+			}
+			swap_ideas = {
+				add_idea = POL_sanation_left_opposition_2
+				remove_idea = POL_sanation_left_opposition_1
+			}
+		}
+	}
+
+	focus = {
+		id = POL_polish_militarism
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = POL_complete_april_constitution }
+		
+		x = 0
+		y = 1
+		relative_position_id = POL_complete_april_constitution
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY } 
+		completion_reward = {
+			army_experience = 20
+			add_ideas = POL_militarism_focus
+			swap_ideas = {
+				remove_idea = POL_april_constitution_2
+				add_idea = POL_april_constitution_3
+			}
+		}
+	}
+
+	focus = {
+		id = POL_consolidate_sanation_government
+		icon = GFX_focus_POL_consolidate_sanation_government
+		prerequisite = { focus = POL_polish_militarism }
+		
+		x = 0
+		y = 1
+		relative_position_id = POL_polish_militarism
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = POL_april_constitution_3
+				add_idea = POL_april_constitution_4
+			}
+		}
+	}
+
+	#The Castle
+	focus = {
+		id = POL_the_castle
+		icon = GFX_focus_POL_the_castle
+		prerequisite = { focus = POL_consolidate_sanation_government }
+		
+		x = 4
+		y = 1
+		relative_position_id = POL_consolidate_sanation_government
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_political_power = 75
+			if = {
+				limit = {
+					has_country_leader = {
+						character = POL_ignacy_moscicki
+						ruling_only = yes
+					}
+				}
+				add_country_leader_trait = the_king_of_the_castle
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = POL_eliminate_socialist_parties
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = POL_the_castle }
+		
+		x = 1
+		y = 1
+		relative_position_id = POL_the_castle
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = POL_dissolve_the_sejm
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = POL_eliminate_socialist_parties }
+		
+		x = 0
+		y = 1
+		relative_position_id = POL_eliminate_socialist_parties
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.2
+			}
+		}
+	}
+	
+	focus = {
+		id = POL_promote_chemical_industry
+		icon = GFX_focus_generic_rubber
+		prerequisite = { focus = POL_the_castle }
+		x = -1
+		y = 1
+		relative_position_id = POL_the_castle
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 89 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = POL_promote_chemical_industry
+				bonus = 1.0
+				uses = 1
+				category = synth_resources
+			}
+		}
+	}
+
+	focus = {
+		id = POL_camp_of_national_unity
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = POL_the_castle }
+		prerequisite = { focus = POL_second_man_of_the_state }
+		x = 0
+		y = 4
+		relative_position_id = POL_the_castle
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			remove_ideas = POL_sanation_left_opposition_2
+			remove_ideas = POL_sanation_right_opposition_2
+			custom_effect_tooltip = no_more_san_right_tt
+			custom_effect_tooltip = no_more_san_left_tt
+		}
+	}
+
+	#Sanation Right
+	focus = {
+		id = POL_the_sanation_right
+		icon = GFX_focus_POL_sanation_right
+		prerequisite = { focus = POL_consolidate_sanation_government }
+		
+		x = 0
+		y = 1
+		relative_position_id = POL_consolidate_sanation_government
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = { has_completed_focus = POL_camp_of_national_unity }
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_political_power = 75
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = POL_edward_rydz_smigly
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = POL_henryk_floyar_rajchman
+		}
+	}
+
+	focus = {
+		id = POL_department_for_home_defence
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = POL_the_sanation_right }
+		
+		x = 1
+		y = 1
+		relative_position_id = POL_the_sanation_right
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = { has_completed_focus = POL_camp_of_national_unity }
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = POL_prepare_for_the_next_war
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = POL_support_right_paramilitaries
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = POL_the_sanation_right }
+		
+		x = 2
+		y = 2
+		relative_position_id = POL_the_sanation_right
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = { has_completed_focus = POL_camp_of_national_unity }
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = POL_jerzy_rutkowski
+			add_ideas = {
+				POL_right_paramilitarism_idea
+			}
+		}
+	}
+
+	focus = {
+		id = POL_codify_national_unity
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = POL_the_sanation_right }
+		
+		x = -1
+		y = 1
+		relative_position_id = POL_the_sanation_right
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = { has_completed_focus = POL_camp_of_national_unity }
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = POL_april_constitution_4
+				add_idea = POL_april_constitution_right
+			}
+		}
+	}
+
+	focus = {
+		id = POL_second_man_of_the_state
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = POL_the_sanation_right }
+		x = 0
+		y = 2
+		relative_position_id = POL_the_sanation_right
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_ideas = POL_edward_rydz_smigly_chairman
+			custom_effect_tooltip = no_more_san_left_tt
+		}
+	}
+
+	#Polish Revanchism
+	focus = {
+		id = POL_polish_revanchism
+		icon = GFX_focus_POL_polish_revanchism
+		prerequisite = { focus = POL_camp_of_national_unity }
+		
+		x = 0
+		y = 1
+		relative_position_id = POL_camp_of_national_unity
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL } 
+		completion_reward = {
+			add_ideas = POL_polish_revanchism_focus
+			#grants a -10% PP cost to war goal justification
+		}
+	}
+
+	################
+	###RESISTANCE###
+	################
+	
+	focus = {
+		id = POL_prepare_for_the_inevitable
+		icon = GFX_focus_POL_prepare_for_the_inevitable
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.6
+				}
+			}
+		}
+		x = 106
+		y = 0
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			#Should maybe also purge all Sanation spirits/effects.
+			#Historically, when Poland surrendered, the Sanation became deeply irrelevant and most of the military just operated from France before fleeing to Britain.
+			#Mosciki himself just waited the war out in Romania while Sikorski focussed on retaking the homeland.
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				gain_random_agency_upgrade = yes
+			}
+			if = {
+				limit = {
+					any_allied_country = {
+						is_hosting_exile = ROOT
+						has_government = democratic
+					}
+					OR = {
+						has_government = neutrality
+						has_government = fascism
+					}
+					has_completed_focus = POL_complete_april_constitution
+				}
+				effect_tooltip = {
+					retire_country_leader = yes
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							is_hosting_exile = ROOT
+						}
+						save_event_target_as = hosting_country_target
+					}
+					country_event = poland.25
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_leader = {
+						character = POL_karl_albrecht
+						ruling_only = yes
+					}
+				}
+				add_country_leader_trait = exile_king
+			}
+			else = {
+				add_ideas = POL_influx_of_exiles
+			}
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = POL
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 100
+				producer = POL
+			}
+		}
+	}
+
+	focus = {
+		id = POL_foreign_air_support
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = POL_prepare_for_the_inevitable }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.6
+				}
+			}
+		}
+
+		x = -3
+		y = 1
+		relative_position_id = POL_prepare_for_the_inevitable
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			air_experience = 50
+			# 19400 Poles served in the exile airforce, 100 manpower per plane making it around 200 planes total.
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 100
+					producer = POL
+					variant_name = "PZL P.11"
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_1
+					amount = 50
+					producer = POL
+					variant_name = "PZL P.23"
+				}
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+
+	focus = {
+		id = POL_foreign_army_support
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = POL_foreign_air_support }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.7
+				}
+			}
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = POL_foreign_air_support
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			army_experience = 75
+			add_manpower = 9700
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+
+	focus = {
+		id = POL_foreign_naval_support
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = POL_prepare_for_the_inevitable }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.6
+				}
+			}
+		}
+
+		x = -1
+		y = 1
+		relative_position_id = POL_prepare_for_the_inevitable
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = dockyard level = 5 }
+		}
+	}
+
+	focus = {
+		id = POL_resistance_industries
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = POL_prepare_for_the_inevitable }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.6
+				}
+			}
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = POL_prepare_for_the_inevitable
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 5 }
+		}
+	}
+
+	focus = {
+		id = POL_exile_industries
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = POL_resistance_industries }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress > 0.7
+				}
+			}
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = POL_resistance_industries
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+
+	focus = {
+		id = POL_expand_polish_intelligence
+		icon = GFX_focus_POL_expand_polish_intelligence
+		prerequisite = { focus = POL_prepare_for_the_inevitable }
+		available = {
+			has_intelligence_agency = yes
+			surrender_progress > 0.6
+
+		}
+
+		x = 3
+		y = 1
+		relative_position_id = POL_prepare_for_the_inevitable
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = {  }
+		completion_reward = {
+			add_ideas = { POL_expand_intelligence_idea }
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = POL_marian_rejewski
+			create_operative_leader = {
+				bypass_recruitment = yes
+				name = "Witold Pilecki"
+				GFX = "GFX_operative_portrait_POL_witold_pilecki"
+				traits = {
+					operative_escape_artist operative_infiltrator operative_commando
+				}
+				nationalities = { POL GER }
+			}
+		}
+	}
+
+	focus = {
+		id = POL_niech_zyje_opor
+		icon = GFX_focus_POL_resistance
+		prerequisite = { focus = POL_expand_polish_intelligence }
+		available = {
+			has_intelligence_agency = yes
+			has_capitulated = yes
+		}
+
+		x = -1
+		y = 2
+		relative_position_id = POL_expand_polish_intelligence
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = {  }
+		completion_reward = {
+			gain_random_agency_upgrade = yes
+			custom_effect_tooltip = unlock_warsaw_uprising_tt
+			hidden_effect = {
+				every_enemy_country = { #Alert Germany/Sov that the Warsaw Uprising may happen
+					limit = {
+						core_resistance = {
+							occupied_country_tag = POL
+							value > 0
+						}
+					}
+					country_event = poland.26
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = POL_the_long_push_home
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = POL_expand_polish_intelligence }
+		available = {
+			OR = {
+				has_capitulated = yes
+				AND = {
+					OR = {
+						has_war_with = GER
+						has_war_with = SOV
+					}
+					is_in_faction = yes
+					surrender_progress < 0.6
+				}
+			}
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = POL_expand_polish_intelligence
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_timed_idea = {
+				idea = POL_push_home_idea
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = POL_atomic_physics_institute
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = POL_ideological_fanaticism focus = POL_abolish_segregated_seating }
+		x = 1
+		y = 1
+		relative_position_id = POL_ideological_fanaticism
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = POL_atomic_physics_institute
+				bonus = 1.0
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+
+	####################
+	### NAVY SECTION ###
+	####################
+
+	focus = {
+		id = POL_develop_polish_ship_building
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		x = 14
+		y = 0
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+		
+		available = {
+			any_owned_state = {
+				NOT = { state = 85 }
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+		}
+
+		completion_reward = {	
+		}
+	}
+
+	focus = {
+		id = POL_attract_poles_to_gdynia
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = POL_develop_polish_ship_building }
+		x = -1
+		y = 1
+		relative_position_id = POL_develop_polish_ship_building
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes 
+				NOT = { state = 85 }
+				is_controlled_by = ROOT
+			}
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					owns_state = 85
+				}
+				85 = { add_manpower = -15000 }
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					prioritize = { 807 }
+					add_manpower = 15000
+				}
+			}
+			add_victory_points = {
+			  province = 9263
+			  value = 5
+			}
+		}
+	}
+
+	focus = {
+		id = POL_study_foreign_built_ships
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		prerequisite = { focus = POL_develop_polish_ship_building }
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = POL_develop_polish_ship_building
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = POL_study_foreign_built_ships
+				bonus = 1.0
+				uses = 2
+				category = dd_tech
+			}
+			#2x 50% research bonus for Destroyers
+		}
+	}
+
+	focus = {
+		id = POL_expand_gdynia_seaport
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = POL_attract_poles_to_gdynia }
+		prerequisite = { focus = POL_study_foreign_built_ships }
+		x = 1
+		y = 1
+		relative_position_id = POL_attract_poles_to_gdynia
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes 
+				NOT = { state = 85 }
+				is_controlled_by = ROOT
+			}
+		}
+
+		available_if_capitulated = yes
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = uncontrolled_exports
+				}
+				swap_ideas = {
+					remove_idea = uncontrolled_exports
+					add_idea = export_focus
+				}
+			}
+			807 = {
+				add_building_construction = { type = bunker province = 9263 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 334 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 389 level = 2 instant_build = yes }
+			}
+			85 = {
+				add_building_construction = { type = bunker province = 362 level = 2 instant_build = yes }
+			}	
+		}
+	}
+
+	focus = {
+		id = POL_expand_northern_rail
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = POL_expand_gdynia_seaport }
+		x = 1
+		y = 1
+		relative_position_id = POL_expand_gdynia_seaport
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		
+		bypass = {
+			85 = { controls_or_subject_of = no }
+			807 = { controls_or_subject_of = no }
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					controls_state = 807
+				}
+				build_railway = {
+					#level = 3
+					path = { 279 3324 389 9263 }
+				}
+			}
+		}
+	}
+}		

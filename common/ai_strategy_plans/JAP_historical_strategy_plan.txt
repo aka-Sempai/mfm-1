@@ -1,0 +1,68 @@
+JAP_historical_plan = {
+	name = "Japan historical plan"
+	desc = "Historical behavior for Japan"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		JAP_new_naval_estimates
+		JAP_purge_the_kodoha_faction
+		JAP_guide_the_zaibatsus
+		JAP_national_mobilization_law
+		JAP_nationalize_war_industry #5
+		JAP_national_defense_state
+		JAP_national_research_policy
+		JAP_spiritual_mobilization
+		JAP_liaison_conference
+		JAP_greater_east_asian_co_prosperity_sphere #10
+		JAP_intervene_in_china # 1/10
+		JAP_strike_south_doctrine # 5/10
+		JAP_carrier_warfare_experiments #11 6/10
+		JAP_first_air_fleet #12 6/10
+		JAP_army_expansion_law #13 1/10
+		JAP_fighter_modernization #14 1/10
+		JAP_agility_focus
+		JAP_the_zero #16 1/10
+		JAP_supremacy_of_the_battlefleet
+		JAP_the_ultimate_battleship #17 6/10
+		JAP_small_arms_modernization
+		JAP_army_expansion # 18 6/10
+		JAP_supremacy_of_will
+		JAP_supremacy_of_technology # 20 1/10
+		JAP_modern_artillery
+		JAP_armored_divisions # 21 6/10
+		JAP_unified_fighter_development # 21 8/10
+		JAP_cruiser_modernization # 22 3/10
+		JAP_non_aggression_pact_with_the_soviet_union
+		JAP_bypass_the_philippines # 23 3/10
+		JAP_develop_chinese_resources # 24 3/10
+		JAP_coal_liquification # 25 3/10
+		JAP_long_lance_torpedoes # 25 8/10
+		JAP_strike_on_the_southern_resource_area # 26
+	} 
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

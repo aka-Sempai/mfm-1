@@ -1,0 +1,6 @@
+
+
+
+nma_prepare_dday_decisions = {
+  icon = military_operation
+}

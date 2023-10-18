@@ -1,0 +1,273 @@
+is_friend_for_panama = { #iz moda chumba
+	hidden_trigger = {
+		OR = { 
+			AND = { 
+				USA = {
+					controls_state = 685
+				}
+				NOT = { has_war_with = USA }  	
+				panama_rule = yes
+			}
+			685 = {
+				controller = {
+					OR = {
+						is_in_faction_with = ROOT 
+						ROOT = { has_military_access_to = PREV }
+					}
+				}
+			}
+			ROOT = {
+				controls_state = 685
+			}
+		}
+	}	
+}
+panama_rule = {
+    OR = {
+        original_tag = ENG
+        original_tag = FRA
+        original_tag = RAJ
+        original_tag = CAN
+        original_tag = AST
+        original_tag = SOV
+        original_tag = SAF
+        original_tag = JAP
+        original_tag = GER
+        original_tag = ITA
+        original_tag = ROM
+    }
+}
+
+sov_contr_push_trigger = {
+	OR = {
+		SOV = {
+			surrender_progress > 0.33
+			
+		}
+		
+	}
+}
+
+sov_sovetnik_triiger = {
+	OR = {
+	SOV = {
+			surrender_progress > 0.45
+		}
+		
+		
+		}
+	}
+
+
+solo_eng_enabled = {
+  has_game_rule = {
+    rule = eng_with_raj_only_GE
+    option = ENG_SOLO_GE_ENABLE
+  }
+}
+
+eng_drop_detected = {
+	ENG = {
+		OR = {
+			NOT = {
+				has_full_control_of_state = 338
+			}
+			NOT = {
+				has_full_control_of_state = 136
+			}
+			NOT = {
+				has_full_control_of_state = 133
+			}
+			NOT = {
+				has_full_control_of_state = 132
+			}
+			NOT = {
+				has_full_control_of_state = 131
+			}
+			NOT = {
+				has_full_control_of_state = 130
+			}
+			NOT = {
+				has_full_control_of_state = 129
+			}
+			NOT = {
+				has_full_control_of_state = 127
+			}
+			NOT = {
+				has_full_control_of_state = 126
+			}
+			NOT = {
+				has_full_control_of_state = 125
+			}
+			NOT = {
+				has_full_control_of_state = 123
+			}
+			NOT = {
+				has_full_control_of_state = 122
+			}
+			NOT = {
+				has_full_control_of_state = 121
+			}
+			NOT = {
+				has_full_control_of_state = 120
+			}
+			NOT = {
+				has_full_control_of_state = 119
+			}
+		}
+	}
+}
+
+JAP_is_industrial_relocation_destiny_state = {
+	OR = {
+		state = 530
+		state = 536
+		state = 555
+		state = 537
+		state = 528
+		state = 529
+		state = 531
+		state = 532
+		state = 535
+		state = 282
+		state = 534
+		state = 533
+	}
+}
+
+GER_is_industrial_relocation_destiny_state = {
+	OR = {
+		state = 4
+		state = 152
+		state = 153
+		state = 52
+		state = 50
+		state = 53
+		state = 54
+		state = 55
+		state = 42
+		state = 51
+		state = 57
+		state = 56
+		state = 60
+		state = 59
+		state = 58
+		state = 65
+		state = 64
+		state = 61
+		state = 62
+		state = 68
+		state = 66
+		state = 67
+		state = 63
+		state = 5
+		state = 763
+		state = 188
+		state = 69
+		state = 74
+	}
+}
+
+FRA_ish_is_industrial_relocation_destiny_state = {
+	OR = {
+		state = 29
+		state = 785
+		state = 15
+		state = 14
+		state = 30
+		state = 16
+		state = 18
+		state = 17
+		state = 28
+		state = 24
+		state = 27
+		state = 20
+		state = 32
+		state = 21
+		state = 735
+		state = 22
+		state = 26
+		state = 33
+		state = 23
+		state = 25
+		state = 31
+		state = 806
+		state = 19
+	}
+}
+
+SOV_siberia_states = {
+	OR = {
+		state = 407
+		state = 406
+		state = 401
+		state = 829
+		state = 251
+		state = 249
+		state = 833
+		state = 400
+		state = 351
+		state = 214
+		state = 397
+		state = 262
+		state = 581
+		state = 825
+		state = 398
+		state = 651
+		state = 652
+		state = 399
+		state = 824
+		state = 579
+		state = 516
+		state = 580
+		state = 577
+		state = 576
+		state = 575
+		state = 644
+		state = 822
+		state = 637
+		state = 562
+		state = 574
+		state = 565
+		state = 563
+		state = 564
+		state = 566
+		state = 567
+		state = 568
+		state = 561
+		state = 560
+		state = 655
+		state = 657
+		state = 409
+		state = 408
+		state = 329
+		state = 578
+		state = 569
+		state = 40
+		state = 654
+		state = 570
+		state = 403
+		state = 571
+		state = 573
+		state = 653
+		state = 588
+		state = 589
+		state = 572
+		state = 582
+		state = 583
+		state = 590
+		state = 404
+		state = 586
+		state = 402
+		state = 823
+		state = 587
+		state = 831
+		state = 585
+		state = 584
+		state = 832
+		state = 830
+		state = 405
+		state = 742
+		state = 732
+	}
+}

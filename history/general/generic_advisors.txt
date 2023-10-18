@@ -1,0 +1,1023 @@
+# For minor countries where advisors are not defined
+# Generate them from a generic template
+
+
+
+every_possible_country = {
+	limit = {
+		has_dlc = "La Resistance"
+		# china gets a special one via focus
+		OR = {
+			original_tag = SOV
+			original_tag = USA
+			#original_tag = ENG
+			original_tag = FRA
+			original_tag = GER
+			original_tag = ITA
+			original_tag = JAP
+			original_tag = HUN
+			original_tag = ROM
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = CAN
+		}
+		NOT = {
+			has_allowed_idea_with_traits = { idea = head_of_intelligence characters = yes }
+		}
+		is_dynamic_country = no
+	}
+	generate_character = {
+		token_base = generic_head_of_intelligence # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { head_of_intelligence }
+			available = {
+				has_intelligence_agency = yes
+				NOT = {
+					has_idea = agency_baf_alt
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					has_intelligence_agency = no
+					factor = 0
+				}
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_head_of_intelligence }
+		}
+	}
+	
+	
+}
+
+
+#хуйня для нз
+every_possible_country = {
+	limit = {
+		OR = {
+			
+			original_tag = NZL
+
+			
+		}
+	}
+	
+	
+generate_character = {
+		token_base = captain_of_industry # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { captain_of_industry }
+			available = {
+				#has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = war_industrialist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { war_industrialist }
+			available = {
+				#has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+}
+
+#неохотный интервенционист, все сосюзнии, с войны
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+
+			
+		}
+	}
+	
+	
+generate_character = {
+		token_base = reluctant_interventionist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { reluctant_interventionist }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#реформатор экономики и новые мастера шпионсва и пропагандист япе
+every_possible_country = {
+	limit = {
+		OR = {
+			
+			
+			original_tag = JAP
+			
+			
+		}
+	}
+	
+	
+	generate_character = {
+		token_base = economy_reformer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { economy_reformer }
+			available = {
+			
+				date > 1943.01.01
+			
+			}
+			
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Spymaster_custom }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = Anti_Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Anti_Spymaster_custom }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+}
+
+
+#реформатор экономики и новые мастера шпионсва, на трейд и пропагандист, все страны
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+			original_tag = GER
+			
+			#original_tag = JAP
+			
+			
+		}
+	}
+	
+	
+	generate_character = {
+		token_base = economy_reformer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { economy_reformer }
+			available = {
+			
+				date > 1943.01.01
+			
+			}
+			
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Spymaster_custom }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = Anti_Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Anti_Spymaster_custom }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+	generate_character = {
+		token_base = smooth_talking_charmer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { smooth_talking_charmer }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	generate_character = {
+		token_base = compassionate_gentleman # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { compassionate_gentleman }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#реформатор экономики и новые мастера шпионсва, на трейд и пропагандист, все страны
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+			original_tag = GER
+			
+			#original_tag = JAP
+			
+			
+		}
+	}
+	
+	
+
+	
+	generate_character = {
+		token_base = Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Spymaster_custom }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+	
+	
+	generate_character = {
+		token_base = smooth_talking_charmer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { smooth_talking_charmer }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	generate_character = {
+		token_base = compassionate_gentleman # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { compassionate_gentleman }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+
+#военный спекулянт, шпионер, с лейта и с войны
+every_possible_country = {
+	limit = {
+		original_tag = USA
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+			original_tag = GER
+			
+			original_tag = JAP
+	}
+	#generate_character = {
+	#	token_base = anti_communist_crusader # token will be TAG_token_base
+	#	advisor = {
+	#		slot = political_advisor
+	#		traits = { anti_communist_crusader }
+	#	}
+	#	portraits = { 
+	#		army = { small = GFX_idea_generic_captain_of_industry }
+	#	}
+	#}
+	
+	generate_character = {
+		token_base = war_profiteer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { war_profiteer }
+			available = {
+				has_war = yes
+			}
+			
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	generate_character = {
+		token_base = Anti_Spymaster_custom # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { Anti_Spymaster_custom }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+}
+
+#Япа(Интервенционист, тайный манипулятор)
+every_possible_country = {
+	limit = {
+		original_tag = JAP
+	}
+	generate_character = {
+		token_base = backroom_backstabber # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { backroom_backstabber }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#Осята демократы
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+		}
+	}
+	generate_character = {
+		token_base = prime_minister_demirag # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { prime_minister_demirag }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+
+
+}
+
+#ВБ и Юса тайный манипулятор
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+
+
+	
+	generate_character = {
+		token_base = backroom_backstabber # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { backroom_backstabber }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#фанатик
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+			original_tag = GER
+			
+			original_tag = JAP
+			
+			
+		}
+	}
+	
+	generate_character = {
+		token_base = warmonger # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { fanatik }
+			available = {
+			AND = {
+				date > 1944.01.01
+			
+				}
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+}
+
+#пропагандист войны
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = ITA
+			original_tag = GER
+			
+		}
+	}
+	
+	generate_character = {
+		token_base = nationalist_symbol # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { nationalist_symbol }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#Ярый защитник, восточные осята, вб и миноры.
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+			
+			original_tag = ROM
+			original_tag = HUN
+			
+		}
+	}
+	
+	generate_character = {
+		token_base = nationalist_symbol # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { nationalist_symbol }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#фашист в ВБ и её минорах
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = AST
+			original_tag = NZL
+		}
+	}
+	generate_character = {
+		token_base = syncretic_revanchist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { syncretic_revanchist }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+		
+	}
+	
+}
+
+#ВБ(Фашисты и капитан индустрии, два советника на трейды)
+every_possible_country = {
+	limit = {
+		original_tag = ENG
+	}
+	#generate_character = {
+	#	token_base = hawk # token will be TAG_token_base
+	#	advisor = {
+	#		slot = political_advisor
+	#		traits = { hawk }
+	#	}
+	#	portraits = { 
+	#		army = { small = GFX_idea_generic_captain_of_industry }
+	#	}
+	#}
+	generate_character = {
+		token_base = captain_of_industry # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { captain_of_industry }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	
+	
+}
+
+#Калмунист(Миноры и ВБ)
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ENG
+			original_tag = SAF
+			original_tag = AST
+			original_tag = CAN
+			original_tag = RAJ
+			original_tag = NZL
+			
+		}
+	}
+	generate_character = {
+		token_base = social_reformer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { social_reformer }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#Нейтралы миноры ВСЕ и Япа
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = SAF
+			original_tag = AST
+			original_tag = CAN
+			original_tag = RAJ
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = JAP
+			original_tag = NZL
+			
+		}
+	}
+	generate_character = {
+		token_base = appeaser # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { appeaser }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	#generate_character = {
+	#	token_base = shadow_of_calles # token will be TAG_token_base
+	#	advisor = {
+	#		slot = political_advisor
+	#		traits = { shadow_of_calles }
+	#	}
+	#	portraits = { 
+	#		army = { small = GFX_idea_generic_captain_of_industry }
+	#	}
+	#}
+	generate_character = {
+		token_base = staunch_monarchist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { staunch_monarchist }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#Венгрия(Палач)
+every_possible_country = {
+	limit = {
+		original_tag = HUN
+	}
+	generate_character = {
+		token_base = prince_of_terror # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { prince_of_terror }
+			available = {
+				has_war = yes
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+}
+
+#Морской общий теоретик
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = AST
+			original_tag = ROM
+			original_tag = HUN
+		}
+	}
+	generate_character = {
+		token_base = generic_naval_theorist # token will be TAG_token_base
+		advisor = {
+			slot = theorist
+			traits = { naval_theorist minor_navy2 }
+			ledger = navy
+			cost = 100
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_naval_theorist }
+		}
+	}
+}
+
+#Наземный общий теоретик
+every_possible_country = {
+	limit = {
+		OR = {
+			original_tag = ITA
+			original_tag = USA
+		}
+	}
+	generate_character = {
+		token_base = generic_military_theorist # token will be TAG_token_base
+		advisor = {
+			slot = theorist
+			traits = { military_theorist }
+			ledger = army
+			cost = 100
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_military_theorist }
+		}
+	}
+}
+
+# Military advisors
+every_possible_country = {
+	limit = {
+		OR = { original_tag = MOR original_tag = KOR original_tag = SER original_tag = ICE original_tag = SYR original_tag = LEB original_tag = EGY original_tag = JOR original_tag = CRO original_tag = LBA original_tag = INS original_tag = MAL original_tag = AZR original_tag = UKR original_tag = GEO original_tag = ARM original_tag = VIN original_tag = CAM original_tag = MNT original_tag = LIB original_tag = LAO original_tag = PAL original_tag = ALT original_tag = KAL original_tag = KAR original_tag = CRI original_tag = TAT original_tag = CIN original_tag = DAG original_tag = BYA original_tag = CKK original_tag = FER original_tag = YAK original_tag = VLA original_tag = KKP original_tag = YAM original_tag = TAY original_tag = OVO original_tag = NEN original_tag = KOM original_tag = ABK original_tag = KBK original_tag = NOA original_tag = VGE original_tag = BSK original_tag = KHI original_tag = BUK original_tag = UDM original_tag = CHU original_tag = MEL }
+	}
+	# generic political advisors 
+	
+	
+	
+	generate_character = {
+		token_base = generic_captain_of_industry # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { captain_of_industry }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	generate_character = {
+		token_base = generic_fortification_engineer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { fortification_engineer }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_fortification_engineer }
+		}
+	}
+	generate_character = {
+		token_base = generic_war_industrialist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { war_industrialist }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_war_industrialist }
+		}
+	}
+	# generic army chiefs
+	generate_character = {
+		token_base = generic_army_chief_off # token will be TAG_token_base
+		advisor = {
+			slot = army_chief
+			traits = { army_chief_offensive_1 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_army_chief_off }
+		}
+	}
+	generate_character = {
+		token_base = generic_army_chief_def # token will be TAG_token_base
+		advisor = {
+			slot = army_chief
+			traits = { army_chief_defensive_1 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_army_chief_def }
+		}
+	}
+	# generic navy chiefs
+	generate_character = {
+		token_base = generic_navy_chief_decisive_bat # token will be TAG_token_base
+		advisor = {
+			slot = navy_chief
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_navy_chief_decisive_bat }
+		}
+	}
+	generate_character = {
+		token_base = generic_navy_anti_submarine # token will be TAG_token_base
+		advisor = {
+			slot = navy_chief
+			traits = { navy_anti_submarine_2 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_navy_anti_submarine }
+		}
+	}
+	# generic air chiefs
+	generate_character = {
+		token_base = generic_air_close_air_sup # token will be TAG_token_base
+		advisor = {
+			slot = air_chief
+			traits = { air_close_air_support_2 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_air_close_air_sup }
+		}
+	}
+	generate_character = {
+		token_base = generic_air_chief_all_weather # token will be TAG_token_base
+		advisor = {
+			slot = air_chief
+			traits = { air_chief_all_weather_2 }
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_air_chief_all_weather }
+		}
+	}
+	# generic high command
+	generate_character = {
+		token_base = generic_army_art # token will be TAG_token_base
+		advisor = {
+			slot = high_command
+			traits = { army_artillery_1 }
+			ledger = army
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_army_art }
+		}
+	}
+	generate_character = {
+		token_base = generic_army_log # token will be TAG_token_base
+		advisor = {
+			slot = high_command
+			traits = { army_logistics_2 }
+			ledger = army
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_army_log }
+		}
+	}
+	generate_character = {
+		token_base = generic_navy_fleet_log # token will be TAG_token_base
+		advisor = {
+			slot = high_command
+			traits = { navy_fleet_logistics_1 }
+			ledger = navy
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_navy_fleet_log }
+		}
+	}
+	generate_character = {
+		token_base = generic_air_air_combat_trainer # token will be TAG_token_base
+		advisor = {
+			slot = high_command
+			traits = { air_air_combat_training_2 }
+			ledger = air
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_air_air_combat_trainer }
+		}
+	}
+	# generic theorists
+	generate_character = {
+		token_base = generic_military_theorist # token will be TAG_token_base
+		advisor = {
+			slot = theorist
+			traits = { military_theorist }
+			ledger = army
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_military_theorist }
+		}
+	}
+	generate_character = {
+		token_base = generic_naval_theorist # token will be TAG_token_base
+		advisor = {
+			slot = theorist
+			traits = { naval_theorist }
+			ledger = navy
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_naval_theorist }
+		}
+	}
+	generate_character = {
+		token_base = generic_air_warfare_theorist # token will be TAG_token_base
+		advisor = {
+			slot = theorist
+			traits = { air_warfare_theorist }
+			ledger = air
+			cost = 50
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_air_warfare_theorist }
+		}
+	}
+}
+
+every_possible_country = {
+	limit = {
+		original_tag = MAN
+	}
+	generate_character = {
+		token_base = generic_captain_of_industry # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { captain_of_industry }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_captain_of_industry }
+		}
+	}
+	generate_character = {
+		token_base = generic_fortification_engineer # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { fortification_engineer }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_fortification_engineer }
+		}
+	}
+	generate_character = {
+		token_base = generic_war_industrialist # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { war_industrialist }
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_war_industrialist }
+		}
+	}
+	generate_character = { #Apparently MAN needs this to get an Illusive Gentleman with the new character sytem
+		token_base = generic_head_of_intelligence # token will be TAG_token_base
+		advisor = {
+			slot = political_advisor
+			traits = { head_of_intelligence }
+			available = {
+				has_intelligence_agency = yes
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					has_intelligence_agency = no
+					factor = 0
+				}
+			}
+		}
+		portraits = { 
+			army = { small = GFX_idea_generic_head_of_intelligence }
+		}
+	}
+}

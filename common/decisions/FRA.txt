@@ -1,0 +1,342 @@
+FRA_vichy_france = {
+
+	FRA_scuttle_the_fleet = {
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			has_government = fascism
+			NOT = {
+				GER = { divisions_in_state = { state = 21 size > 0 } }
+			}
+			has_country_flag = {
+				flag = case_anton
+				days > 2
+			}
+		}
+
+		cost = 0
+
+		ai_will_do = {
+			factor = 200
+		}
+
+		visible = {
+			has_government = fascism
+			has_country_flag = case_anton
+		}
+
+		complete_effect = {
+			set_country_flag = scuttled_fleet
+			destroy_ships = {
+				type = ship_hull_light
+				count = all
+			}
+			destroy_ships = {
+				type = ship_hull_cruiser
+				count = all
+			}
+			destroy_ships = {
+				type = ship_hull_heavy
+				count = all
+			}
+			destroy_ships = {
+				type = ship_hull_carrier 
+				count = all
+			}
+			destroy_ships = {
+				type = ship_hull_submarine
+				count = all
+			}
+		}
+	}
+
+	FRA_case_anton_mission = {
+
+		icon = generic_tank
+
+		available = {
+			is_subject = no
+			has_war_with = GER
+		}
+
+		days_mission_timeout = 7
+		fire_only_once = yes
+
+		activation = {
+			original_tag = FRA
+			has_government = fascism
+			OR = {
+				is_subject_of = GER
+				has_focus_tree = vichy_french_focus
+			}
+			has_country_flag = case_anton
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = FRA_case_anton_mission_tt
+		}
+
+		is_good = no
+
+		timeout_effect = {
+			transfer_navy = { target = GER }
+			GER = { annex_country = { target = ROOT } }
+			if = {
+				limit = {
+					NOT = { has_country_flag = scuttled_fleet }
+				}
+				GER = { news_event = { id = wtt_news.23 hours = 6 } }
+			}
+			if = {
+				limit = {
+					has_country_flag = scuttled_fleet
+				}
+				GER = { news_event = { id = wtt_news.24 hours = 6 } }
+			}
+			custom_effect_tooltip = GAME_OVER_TT
+		}
+	}
+	FRA_demand_unification_with_vichy = {
+		available = {
+			VIC = {
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			controls_state = 16 #Paris
+		}
+
+		visible = {
+			NOT = {
+				tag = VIC
+			}
+			country_exists = VIC
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 0
+		fire_only_once = yes
+		complete_effect = {
+			random_other_country = {
+				limit = {
+					tag = VIC
+				}
+				country_event = lar_france_vichy_reunification.1
+			}
+		}
+	}
+}
+category_test_decisions = {
+	test_free_france = {
+		allowed = { original_tag = FRA }
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			load_focus_tree = free_french_focus
+		}
+	}
+	test_vichy_france = {
+		allowed = { original_tag = FRA }
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			create_dynamic_country = {
+				original_tag = FRA
+				save_event_target_as = france_vichy
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+						OR = {
+							is_on_continent = africa
+							is_core_of = VIN
+							is_core_of = CAM
+							is_core_of = LAO
+							is_core_of = LEB
+							is_core_of = SYR
+						}
+					}
+					event_target:france_vichy = { transfer_state = PREV }
+				}
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+						OR = {
+							state = 735
+							state = 21
+							state = 32
+							state = 20
+							state = 26
+							state = 22
+							state = 31
+							state = 25
+							state = 33
+						}
+					}
+					add_core_of = PREV
+					event_target:france_vichy = { transfer_state = PREV }
+				}
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						NOT = {
+							is_controlled_by = event_target:france_vichy
+						}
+					}
+					add_core_of = PREV
+				}
+				set_capital = { state = 26 }
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic = 0
+					neutrality = 20
+					fascism = 80
+					communism = 0
+				}
+				FRA = {
+					FRA_philippe_petain= {
+						set_nationality = event_target:france_vichy	
+					}
+				}
+				FRA_philippe_petain= {
+					add_country_leader_role = {
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = fascism_ideology
+							traits = {
+								
+							}
+						}
+						promote_leader = yes
+					}
+				}
+				set_cosmetic_tag = FRA_VICHY
+				add_ideas = FRA_occupation_costs_4
+				load_focus_tree = vichy_french_focus
+				FRA = {
+					transfer_units_fraction = {
+						target = event_target:france_vichy
+						size = 0.9
+						stockpile_ratio = 0.7
+						army_ratio = 0.5
+						navy_ratio = 0.85
+						air_ratio = 1.0
+					}
+				}
+				change_tag_from = FRA
+			}
+		}
+	}
+}
+
+economy_decisions = {
+
+	FRA_revoke_the_matignon_agreements = {
+		visible = { has_idea = FRA_matignon_agreements }
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				has_war = no
+				factor = 0
+			}
+		}
+
+		complete_effect = {
+			remove_ideas = FRA_matignon_agreements
+			if = {
+				limit = {
+					communism > 0.25
+				}
+				country_event = lar_france_political_violence.2
+			}
+		}
+	}
+}
+VIC_concessions_to_the_germans = {
+
+	VIC_produce_aircraft_parts = {
+		available = {
+			date > 1941.06.01
+		}
+
+		visible = {
+			always = yes
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 999
+		}
+		complete_effect = {
+			add_ideas = VIC_produce_aircraft_parts
+			GER = { add_ideas = VIC_aircraft_parts }
+		}
+	}
+	VIC_send_guest_workers = {
+		available = {
+			date > 1941.06.01
+		}
+		visible = {
+			always = yes
+		}
+		cancel_trigger = {
+			not = { has_country_flag = VIC_send_guest_workers }
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 999
+		}
+		fire_only_once = yes
+		days_remove = -1
+		modifier = {
+			conscription_factor = -0.25
+		}
+		complete_effect = {
+			GER = { add_ideas = VIC_guest_workers }
+			set_country_flag = VIC_send_guest_workers
+		}
+	}
+	VIC_recall_guest_workers = {
+		available = {
+			always = no
+		}
+		visible = { 
+		 	always = no
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				controls_state = 16
+				add = 10
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			GER = { remove_ideas = VIC_guest_workers }
+			if = {
+				limit = {
+					controls_state = 16
+					has_idea = FRA_mandatory_work_service
+				}
+				remove_ideas = FRA_mandatory_work_service
+			}
+			clr_country_flag = VIC_send_guest_workers
+		}
+	}	
+}

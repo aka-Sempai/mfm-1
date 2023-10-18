@@ -1,0 +1,11 @@
+d_occupation_decisions = {
+  icon = military_operation
+}
+
+
+d_annexation_decisions = {
+  icon = military_operation
+}
+
+
+

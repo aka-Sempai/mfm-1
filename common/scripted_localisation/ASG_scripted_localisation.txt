@@ -1,0 +1,115 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+
+
+defined_text = {
+    name = GetGreyMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_grey_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetRedMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_red_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetBlueMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_blue_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetGreenMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_green_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetLightBlueMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_light_blue_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetLightRedMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_light_red_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetLightYellowMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_light_yellow_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}
+
+defined_text = {
+    name = GetLightWhiteMilitaryScore
+
+    text = {
+        trigger = { 
+            var:global.ASG_light_white_curve_tag = { 
+                set_temp_variable = { score_var = ASG_military_score }
+            }
+        }
+        localization_key = "[?score_var|2]"
+    }
+}

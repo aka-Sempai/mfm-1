@@ -1,0 +1,28 @@
+on_actions = {
+	on_state_control_changed = { 
+		effect = {
+			if = {
+				limit = {
+					AND = { 
+						NOT = { has_global_flag = fall_of_france } 					
+						FRA = {
+							
+									surrender_progress > 0.50
+								
+							
+						}
+					}
+				}
+				
+				set_global_flag = fall_of_france
+
+				# repeatedly fire an event that deletes France's stockpile, so that it will have no equipment when it capitulates (so Germany doesn't capture anything, and the France player has an incentive to build useful equipment, rather than worrying about what Germany will capture)
+				FRA = { country_event = { id = mfm.18 days = 8 } }
+				FRA = { country_event = { id = mfm.18 days = 9 } }
+				FRA = { country_event = { id = mfm.18 days = 10 } }			
+				FRA = {    set_equipment_fraction = 0.0 }
+			}
+		}
+	}
+
+}

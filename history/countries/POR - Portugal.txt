@@ -1,0 +1,20 @@
+﻿capital = 112
+
+add_ideas = { 
+	you_bot_ai
+	free_trade
+}
+set_stability = 0.0
+set_war_support = 0.0
+set_research_slots = 0
+country_lock_all_division_template = yes
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1933.3.5"
+	election_frequency = 999
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}

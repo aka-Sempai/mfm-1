@@ -1,0 +1,100 @@
+################
+#### BULGARIA ####
+################
+
+BUL_internal_factions = {
+	priority = 10
+
+	icon = power_struggle
+
+	picture = GFX_decision_cat_picture_faction_management_bulgaria
+
+	scripted_gui = bul_internal_factions_decision_ui
+
+	visible = {
+		has_country_flag = BUL_factions_unlocked_flag
+	}
+
+	allowed = {
+		original_tag = BUL
+		has_dlc = "Battle for the Bosporus"
+	}
+}
+
+BUL_macedonian_revolutionary_organizations = {
+	priority = 8
+
+	icon = spr_political_assassination
+
+	picture = GFX_decision_cat_picture_macedonian_organizations
+
+	allowed = {
+		original_tag = BUL
+		has_dlc = "Battle for the Bosporus"
+	}
+
+	visible = {
+		NOT = { has_country_flag = BUL_zveno_bulgaria_flag }
+	}
+}
+
+BUL_rearmament = {
+	priority = 6
+
+	icon = ger_military_buildup
+
+	allowed = {
+		original_tag = BUL
+		has_dlc = "Battle for the Bosporus"
+	}
+}
+
+BUL_foreign_agreements = {
+	icon = generic_political_actions
+
+	picture = GFX_decision_cat_picture_gateway_to_europe
+
+	allowed = {
+		original_tag = BUL
+		has_dlc = "Battle for the Bosporus"
+	}
+
+	custom_icon = {
+		tag = GER
+		value = BUL_german_industrial_agreements_category_value
+		desc = BUL_german_industrial_agreements_category_desc
+
+		visible = {
+			country_exists = GER
+		}
+	}
+
+	custom_icon = {
+		tag = ENG
+		value = BUL_british_industrial_agreements_category_value
+		desc = BUL_british_industrial_agreements_category_desc
+
+		visible = {
+			country_exists = ENG
+		}
+	}
+
+	custom_icon = {
+		tag = SOV
+		value = BUL_soviet_industrial_agreements_category_value
+		desc = BUL_soviet_industrial_agreements_category_desc
+
+		visible = {
+			country_exists = SOV
+		}
+	}
+}
+
+BUL_purchase_equipment = {
+	icon = generic_arms_trade
+
+	allowed = {
+		original_tag = BUL
+		has_dlc = "Battle for the Bosporus"
+	}
+}

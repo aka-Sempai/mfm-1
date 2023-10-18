@@ -1,0 +1,694 @@
+add_namespace = france_cap
+
+country_event = {
+	id = france_cap.1
+	title = france_cap.1.t
+	desc = france_cap.1.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.1.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			add_ideas = stop_fra_1
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.2
+	title = france_cap.2.t
+	desc = france_cap.2.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.1.15
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_1
+				add_idea = stop_fra_2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.3
+	title = france_cap.3.t
+	desc = france_cap.3.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.2.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_2
+				add_idea = stop_fra_3
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.4
+	title = france_cap.4.t
+	desc = france_cap.4.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.2.15
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_3
+				add_idea = stop_fra_4
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.5
+	title = france_cap.5.t
+	desc = france_cap.5.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.3.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_4
+				add_idea = stop_fra_5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.6
+	title = france_cap.6.t
+	desc = france_cap.6.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.4.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_5
+				add_idea = stop_fra_6
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.7
+	title = france_cap.7.t
+	desc = france_cap.7.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.5.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_6
+				add_idea = stop_fra_7
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.8
+	title = france_cap.8.t
+	desc = france_cap.8.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.6.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_7
+				add_idea = stop_fra_8
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.9
+	title = france_cap.9.t
+	desc = france_cap.9.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.7.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_8
+				add_idea = stop_fra_9
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.10
+	title = france_cap.10.t
+	desc = france_cap.10.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.8.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_9
+				add_idea = stop_fra_10
+			}
+		}
+	}
+}
+
+country_event = {
+	id = france_cap.11
+	title = france_cap.11.t
+	desc = france_cap.11.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	trigger = {
+		date > 1940.9.1
+		country_exists = FRA
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		FRA = {
+			swap_ideas = {
+				remove_idea = stop_fra_10
+				add_idea = stop_fra_11
+			}
+		}
+	}
+}
+
+#удаляет дебаф на филипинах
+country_event = {
+	id = france_cap.1001
+	title = france_cap.1001.t
+	desc = france_cap.1001.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	hidden = yes
+	trigger = {
+		date > 1941.1.1
+	}
+	
+	fire_only_once = yes
+	
+	immediate = { 
+		623 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		327 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		624 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		628 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		625 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		627 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+		626 = {
+			remove_dynamic_modifier = { modifier = asia_prepare_stop }
+		}
+	}
+	
+	option = {
+		name = france_cap.1001.a
+	}
+}
+
+#Баф на терки вб во время дропа
+country_event = {
+    id = france_cap.1488
+    title = france_cap.1488.t
+    desc = france_cap.1488.d
+    picture = GFX_report_event_europe_funeral
+
+    trigger = {
+		eng_drop_detected = yes
+    }
+	
+	hidden = yes
+    
+    fire_only_once = yes
+    
+    immediate = {
+        #name = france_cap.1488.a
+		136 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		133 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		132 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		131 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		130 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		121 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		120 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		119 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		113 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		134 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+		135 = {
+			add_dynamic_modifier = { modifier = def_vb scope = ENG }
+		}
+    }
+}
+
+#Баф на терки япы ельциниста
+country_event = {
+    id = france_cap.1489
+    title = france_cap.1489.t
+    desc = france_cap.1489.d
+    picture = GFX_report_event_europe_funeral
+
+    trigger = {
+		JAP = {
+			surrender_progress > 0.20
+		}
+    }
+	
+	hidden = yes
+    
+    fire_only_once = yes
+    
+    immediate = {
+        #name = france_cap.1488.a
+		282 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		528 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		529 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		530 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		531 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		532 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		533 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		534 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		535 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+		536 = {
+			add_dynamic_modifier = { modifier = def_romka_yeltsenist scope = JAP }
+		}
+    }
+}
+
+#Отдаем флот японский
+country_event = {
+    id = france_cap.1490
+    title = france_cap.1490.t
+    desc = france_cap.1490.d
+    picture = GFX_report_event_europe_funeral
+
+    trigger = {
+		JAP = {
+			surrender_progress > 0.50
+		}
+    }
+	
+	hidden = yes
+    
+    fire_only_once = yes
+    
+    immediate = {
+        JAP = {
+			transfer_units_fraction = {
+				target = SWE
+				size = 0
+				stockpile_ratio = 0
+				army_ratio = 0
+				navy_ratio = 1
+				air_ratio = 0
+			}
+		}
+    }
+}
+
+#Капаем япу
+country_event = {
+    id = france_cap.1491
+    title = france_cap.1491.t
+    desc = france_cap.1491.d
+    picture = GFX_report_event_europe_funeral
+
+    trigger = {
+		JAP = {
+			surrender_progress > 0.52
+		}
+    }
+	
+	hidden = yes
+    
+    fire_only_once = yes
+    
+    immediate = {
+        JAP = {
+			add_ideas = jap_cap_duh
+		}
+    }
+}
+
+country_event = {
+    id = france_cap.322
+    title = france_cap.322.t
+    desc = france_cap.322.d
+    picture = GFX_report_event_europe_funeral
+
+    trigger = {
+	
+		#	FRA = { has_capitulated = yes }
+			has_global_flag = fall_of_france
+			
+    }
+	
+	hidden = yes
+    
+    fire_only_once = yes
+    
+    immediate = {
+        #name = france_cap.1488.a
+		GER = { 
+		create_equipment_variant = {
+                        name = "Hotchkiss H35 c.3"
+                        type = light_tank_chassis_1
+                        parent_version = 0
+                        modules = {
+							shell_slot = semi_flat_armor
+							#armor_type_slot = tank_riveted_armor
+							#tank_armor_type = tank_welded_armor
+							turret_shell_slot = close_armored_turret
+							#tank_hull_mod = sloped_armor
+                            main_armament_slot = tank_small_cannon
+                            turret_type_slot = tank_light_one_man_tank_turret
+                            suspension_type_slot = tank_christie_suspension
+                            armor_type_slot = tank_cast_armor
+                            engine_type_slot = tank_diesel_engine
+                            #special_type_slot_1 = 
+							
+								
+                        }
+                        upgrades = {
+                            tank_nsb_engine_upgrade = 11
+                            tank_nsb_armor_upgrade = 15
+                        }
+                        #icon = "GFX_FRA_improved_light_tank_medium"
+                    }
+				add_equipment_to_stockpile = { 
+					type = light_tank_chassis_1
+					amount = 3000
+					producer = GER
+					variant_name = "Hotchkiss H35 c.3"
+				}
+		
+		add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 50
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1 
+				amount = 1000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 2000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 50000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 50000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 2000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_1 
+				amount = 2000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1  
+				amount = 2000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = convoy_1 
+				amount = 100
+				producer = FRA
+			}
+			
+		}
+		
+		ENG = { 
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1 
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 5000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 5000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_1 
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1  
+				amount = 200
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = convoy_1 
+				amount = 50
+				producer = FRA
+			}
+			
+		}
+		
+		AST = { 
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1 
+				amount = 100
+				producer = FRA
+			}
+		}
+		RAJ = { 
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1 
+				amount = 100
+				producer = FRA
+			}
+		}
+		CAN = { 
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 100
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1 
+				amount = 100
+				producer = FRA
+			}
+		}
+		
+			
+    }
+}

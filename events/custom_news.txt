@@ -1,0 +1,68 @@
+
+	#Ивенты для всякого	
+	add_namespace = custom_ev	
+	# Баф на вал снят
+	country_event = {	
+		id = custom_ev.1
+		title = custom_ev.1.t
+		desc = custom_ev.1.d
+		picture = GFX_report_event_japan_army_mountainside	
+		is_triggered_only = yes	
+		option = {
+			name = custom_ev.1.a
+		}
+		option = {
+			name = custom_ev.1.b
+		}				
+	}
+	
+	# Зимнее наступление начало
+	country_event = {	
+		id = custom_ev.21
+		title = custom_ev.21.t
+		desc = custom_ev.21.d
+		picture = GFX_report_event_japan_army_mountainside	
+		is_triggered_only = yes	
+		option = {
+			name = custom_ev.21.a
+		}
+		option = {
+			name = custom_ev.21.b
+		}				
+	}	
+
+	# Зимнее наступление конец
+	country_event = {	
+		id = custom_ev.22
+		title = custom_ev.22.t
+		desc = custom_ev.22.d
+		picture = GFX_report_event_japan_army_mountainside		
+		is_triggered_only = yes	
+		option = {
+			name = custom_ev.22.a
+		}				
+	}
+	
+	# Тора-Тора закончилась
+	country_event = {	
+		id = custom_ev.3
+		title = custom_ev.3.t
+		desc = custom_ev.3.d
+		picture = GFX_report_event_japan_army_mountainside		
+		is_triggered_only = yes	
+		option = {
+			name = custom_ev.3.a
+		}
+		option = {
+			name = custom_ev.3.b
+		}				
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
